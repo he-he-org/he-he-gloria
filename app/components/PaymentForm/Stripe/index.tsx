@@ -1,18 +1,28 @@
 import { useCallback, useState } from "react";
+import envSettings from "../../../../envSettings.json";
+
+const ENV =
+  process.env.NODE_ENV === "development" ? "development" : "production";
+
+const settings = envSettings[ENV];
 
 interface FormValue {
   subscribe: boolean;
-  amount: number;
+  productKey: string | null;
 }
 
 export default function Stripe() {
   const [formValues, setFormValues] = useState<FormValue>({
     subscribe: false,
-    amount: 0,
+    productKey: "25_DOLLARS_EN",
   });
 
+  const productInfo = settings.products.find(
+    (x) => x.key === formValues.productKey
+  );
+
   const handleSubmit = useCallback(async () => {
-    const serverResponse = await fetch(".netlify/functions/payment", {
+    const serverResponse = await fetch(".netlify/functions/payment_stripe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,8 +30,8 @@ export default function Stripe() {
       body: JSON.stringify({
         lang: "en",
         mode: formValues.subscribe ? "subscription" : "payment",
-        amount: `${formValues.amount}`,
-        // productKey: productInfo.productKey,
+        amount: productInfo.amount,
+        productKey: productInfo.productKey,
       }),
     });
     const responseJson = await serverResponse.json();
@@ -38,23 +48,38 @@ export default function Stripe() {
     // }
     // window.location.href = responseJson.location;
   }, [formValues]);
+  console.log("env!", ENV);
+  console.log("settings", settings);
   return (
     <div>
       <h1>Stripe</h1>
       <div>
         <label>
-          Amount:
-          <input
-            type="number"
-            min="0"
-            value={formValues.amount}
-            onChange={(e) =>
+          Product:
+          <select
+            value={formValues.productKey ?? ""}
+            onChange={(e) => {
               setFormValues((prevState) => ({
                 ...prevState,
-                amount: parseInt(e.target.value) ?? 0,
-              }))
-            }
-          />
+                productKey: e.target.value ?? null,
+              }));
+            }}
+          >
+            {settings.products.map((product) => (
+              <option key={product.key}>{product.key}</option>
+            ))}
+          </select>
+          {/*<input*/}
+          {/*  type="number"*/}
+          {/*  min="0"*/}
+          {/*  value={formValues.amount}*/}
+          {/*  onChange={(e) =>*/}
+          {/*    setFormValues((prevState) => ({*/}
+          {/*      ...prevState,*/}
+          {/*      amount: parseInt(e.target.value) ?? 0,*/}
+          {/*    }))*/}
+          {/*  }*/}
+          {/*/>*/}
         </label>
       </div>
       <div>
@@ -74,7 +99,11 @@ export default function Stripe() {
         </label>
       </div>
       <div>
-        <button type="button" onClick={handleSubmit}>
+        <button
+          type="button"
+          onClick={handleSubmit}
+          disabled={productInfo == null}
+        >
           Pay
         </button>
       </div>

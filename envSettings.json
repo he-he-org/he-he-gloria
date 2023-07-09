@@ -1,0 +1,16 @@
+{
+  "production": {
+    "products": [
+      { "key": "25_DOLLARS_EN", "amount": 25, "stripeId": "missing" }
+    ]
+  },
+  "development": {
+    "products": [
+      {
+        "key": "25_DOLLARS_EN",
+        "amount": 25,
+        "stripeId": "prod_OEQONs5h2V2h1b"
+      }
+    ]
+  }
+}
