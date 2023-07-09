@@ -12,7 +12,7 @@ export default function Stripe() {
   });
 
   const handleSubmit = useCallback(async () => {
-    const serverResponse = await fetch("/api/payment", {
+    const serverResponse = await fetch(".netlify/functions/payment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
