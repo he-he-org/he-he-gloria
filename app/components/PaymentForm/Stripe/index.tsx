@@ -22,19 +22,25 @@ export default function Stripe() {
   );
 
   const handleSubmit = useCallback(async () => {
-    const serverResponse = await fetch(".netlify/functions/payment_stripe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        lang: "en",
-        mode: formValues.subscribe ? "subscription" : "payment",
-        amount: productInfo.amount,
-        productKey: productInfo.productKey,
-      }),
+    const serverResponse = await fetch("/api/user", {
+      method: "GET",
     });
-    const responseJson = await serverResponse.json();
+    const responseJson = await serverResponse.text();
+    console.log("serverResponse", responseJson);
+
+    // const serverResponse = await fetch(".netlify/functions/payment_stripe", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     lang: "en",
+    //     mode: formValues.subscribe ? "subscription" : "payment",
+    //     amount: productInfo.amount,
+    //     productKey: productInfo.productKey,
+    //   }),
+    // });
+    // const responseJson = await serverResponse.json();
     console.log("serverResponse", responseJson);
     // if (!serverResponse.ok) {
     //   const message = await serverResponse.text();
