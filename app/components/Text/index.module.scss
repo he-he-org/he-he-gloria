@@ -1,0 +1,7 @@
+@use "app/globals";
+
+.root {
+  margin: 1em 0;
+
+  @include globals.fix-text-margins();
+}

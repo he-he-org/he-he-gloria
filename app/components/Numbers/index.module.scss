@@ -1,0 +1,43 @@
+@use "app/globals";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.top,
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.red,
+.white {
+  text-align: right;
+
+  .value {
+    font-size: 108px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+  .title {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+  }
+}
+
+.red {
+  color: globals.$colors-red;
+}
+
+.white {
+  color: white;
+}

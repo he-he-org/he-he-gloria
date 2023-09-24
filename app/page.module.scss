@@ -1,0 +1,63 @@
+@use "app/globals";
+
+.root {
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.content {
+  padding: 64px;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  z-index: 1;
+}
+
+
+.black,
+.white {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+}
+
+.black {
+  background: globals.$colors-black;
+  color: white;
+  overflow: hidden;
+}
+
+.white {
+  background: white;
+  color: globals.$colors-black;
+  position: relative;
+}
+
+.dishAndGradient {
+  position: absolute;
+  top: -528px;
+  background: globals.$colors-black;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1250px;
+  width: 100%;
+  overflow: hidden;
+
+  .dish {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(220px);
+  }
+
+  .bgGradient {
+    position: absolute;
+    top: 162px;
+    left: 50%;
+    transform: translateX(-50%) translateX(464px);
+  }
+
+}

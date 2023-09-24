@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'PoliteType';
+    src: url('polite-type-regular.eot'); /* IE9 Compat Modes */
+    src: url('polite-type-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('polite-type-regular.woff') format('woff'), /* Modern Browsers */
+    url('polite-type-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+    url('polite-type-regular.svg#PoliteType') format('svg'); /* Legacy iOS */
+}

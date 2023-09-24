@@ -1,0 +1,16 @@
+@mixin fix-text-margins {
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-top: 0;
+  }
+}
+
+$header-font: PoliteType, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$colors-black: #231F20;
+$colors-red: #D35357;
+$colors-red-2: #DC7579;
+
+$animation-duration: 300ms;

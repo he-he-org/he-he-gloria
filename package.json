@@ -15,12 +15,16 @@
   "license": "ISC",
   "dependencies": {
     "@netlify/functions": "^1.6.0",
+    "fp-ts": "^2.16.1",
+    "io-ts": "^2.2.20",
     "next": "^13.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.67.0",
     "stripe": "^12.12.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "20.3.1",
     "@types/react": "18.2.14",
     "eslint": "8.43.0",

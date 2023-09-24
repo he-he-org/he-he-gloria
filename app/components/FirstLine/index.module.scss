@@ -1,0 +1,14 @@
+@use "app/globals";
+
+.root {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: globals.$header-font;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 125%; /* 30px */
+  letter-spacing: 0.2px;
+  margin: 36px 0;
+
+  @include globals.fix-text-margins();
+}
