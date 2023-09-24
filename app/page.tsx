@@ -25,6 +25,8 @@ import Photo05 from "./assets/photos/05.jpeg";
 import DonateButton from "./components/DonateButton";
 import Numbers from "./components/Numbers";
 import PhotoGallery from "./components/PhotoGallery";
+import Quote from "./components/Quote";
+import Space from "./components/Space";
 
 export default function Page() {
   return (
@@ -50,6 +52,7 @@ export default function Page() {
             </div>
             <Numbers />
           </SideBySideBlock>
+          <Space height={50} />
           <SideBySideBlock>
             <div>
               <DonnaGloriaSvg />
@@ -59,36 +62,49 @@ export default function Page() {
               <FirstLine>Meet Donna Gloria, </FirstLine>
               <Text>
                 a resilient and hard-working woman living in
-                the&nbsp;picturesque village of Chuinajtajuyub, Guatemala. This
-                village nestled amidst breathtaking mountains fosters
+                the&nbsp;picturesque <b>village of Chuinajtajuyub, Guatemala</b>
+                . This village nestled amidst breathtaking mountains fosters
                 a&nbsp;close-knit community. However, faces challenges when it
                 comes to&nbsp;accessing quality healthcare. Donna Gloria with
                 her big heart and&nbsp;even bigger family, understands
-                the&nbsp;struggles all too well. To&nbsp;visit a&nbsp;doctor,
-                she and&nbsp;her neighbours have to&nbsp;travel far
+                the&nbsp;struggles all too well.
+              </Text>
+              <Text>
+                <b>
+                  To&nbsp;visit a&nbsp;doctor, she and&nbsp;her neighbours have
+                  to&nbsp;travel far
+                </b>{" "}
                 and&nbsp;stand in long lines for&nbsp;hours, leaving them
                 vulnerable to the&nbsp;perils of&nbsp;inadequate healthcare.
               </Text>
             </div>
           </SideBySideBlock>
+          <Space height={50} />
           <SideBySideBlock>
             <div>
               <FirstLine>Donna Gloria works as a&nbsp;cook,</FirstLine>
               <Text>
                 while her husband Juan works as a&nbsp;bus driver. Her homemade
                 tamales, banana ice&nbsp;cream, and tortillas are beloved
-                by&nbsp;her customers. However, there is a&nbsp;hidden struggle
-                behind her culinary talents. As&nbsp;she cooks over an&nbsp;open
-                fire,&nbsp; Donna Gloria often finds it difficult
-                to&nbsp;breathe due to&nbsp;her asthma. Yet, with
-                an&nbsp;unwavering spirit, she faces each day with a&nbsp;smile.
-                But deep down she knows that there’s nothing she can do —&nbsp;
-                as all&nbsp;doctors are far&nbsp;away from her&nbsp;village and
-                medications are always expensive.
+                by&nbsp;her customers.
+              </Text>
+              <Text>
+                <b>
+                  However, there is a&nbsp;hidden struggle behind her culinary
+                  talents.
+                </b>{" "}
+                As&nbsp;she cooks over an&nbsp;open fire,&nbsp; Donna Gloria
+                often finds it difficult to&nbsp;breathe due to&nbsp;her asthma.
+                Yet, with an&nbsp;unwavering spirit, she faces each day with
+                a&nbsp;smile. But deep down she knows that{" "}
+                <b>there’s nothing she can do</b> —&nbsp; as all&nbsp;doctors
+                are far&nbsp;away from her&nbsp;village and medications are
+                always expensive.
               </Text>
             </div>
             <Illustration2Svg />
           </SideBySideBlock>
+          <Space height={50} />
           <SideBySideBlock>
             <Illustration3Svg />
             <div>
@@ -98,37 +114,49 @@ export default function Page() {
               <Text>
                 Her neighbours face countless obstacles too&nbsp;— insufficient
                 sanitation, scarce clean water, and&nbsp;inadequate nutrition.
-                All of&nbsp;this has cast a&nbsp;dark shadow over their lives,
-                leaving them vulnerable to&nbsp;preventable and&nbsp;manageable
-                illnesses.
+              </Text>
+              <Text>
+                <b>
+                  All of&nbsp;this has cast a&nbsp;dark shadow over their lives
+                </b>
+                , leaving them vulnerable to&nbsp;preventable
+                and&nbsp;manageable illnesses.
               </Text>
             </div>
           </SideBySideBlock>
+          <Space height={50} />
           <SideBySideBlock>
             <div>
               <Header1>We saw it all … and started working</Header1>
-              <blockquote>
+              <Quote color="WHITE">
                 — This village is located at the&nbsp;intersection of several
                 roads in&nbsp;the&nbsp;middle of the&nbsp;wilderness, making it
                 a&nbsp;unique place that can be reached by&nbsp;people from
                 the&nbsp;3 nearby villages - Kiche, Hueuetenango, and
                 Totonicapan.
-              </blockquote>
+              </Quote>
               <Text>
-                When our founders, Vika and&nbsp;Karina, discovered this
-                village, they immediately recognized the&nbsp;dire need
-                for&nbsp;medical support. Determined to&nbsp;make
-                a&nbsp;difference, they embarked on a&nbsp;journey
-                to&nbsp;establish the&nbsp;1st clinic in&nbsp;Chuinajtajuyub.
+                <b>
+                  When our founders, Vika and&nbsp;Karina, discovered this
+                  village
+                </b>
+                , they immediately recognized the&nbsp;dire need
+                for&nbsp;medical support.
               </Text>
               <Text>
-                However, their path was not without challenges. Skepticism
-                lingered among the villagers, unsure of the impact this
-                initiative could bring.
+                Determined to&nbsp;make a&nbsp;difference, they embarked on
+                a&nbsp;journey to&nbsp;establish the&nbsp;1st clinic
+                in&nbsp;Chuinajtajuyub.
+              </Text>
+              <Text>
+                <b>However, their path was not without challenges.</b>{" "}
+                Skepticism lingered among the villagers, unsure of the impact
+                this initiative could bring.
               </Text>
             </div>
             <Illustration4Svg />
           </SideBySideBlock>
+          <Space height={50} />
           <SideBySideBlock>
             <Illustration5Svg />
             <div>
@@ -140,16 +168,22 @@ export default function Page() {
                 But as days turned into weeks, the&nbsp;clinic’s construction
                 became a&nbsp;symbol of&nbsp;hope — an&nbsp;embodiment
                 of&nbsp;a&nbsp;future where healthcare is no&nbsp;longer
-                an&nbsp;elusive dream. With the&nbsp;support of&nbsp;Donna
-                Gloria, her husband, and the entire village, the&nbsp;clinic
-                gradually took shape. Brick by brick, it stood as
-                a&nbsp;testament to&nbsp;the collective effort and&nbsp;belief
-                in a&nbsp;better tomorrow.
+                an&nbsp;elusive dream.{" "}
+                <b>
+                  With the&nbsp;support of&nbsp;Donna Gloria, her husband, and
+                  the entire village, the&nbsp;clinic gradually took shape.
+                </b>
+              </Text>
+              <Text>
+                Brick by brick, it stood as a&nbsp;testament to&nbsp;the
+                collective effort and&nbsp;belief in a&nbsp;better tomorrow.
               </Text>
             </div>
           </SideBySideBlock>
+          <Space height={100} />
           <Illustration6Svg />
-          <SideBySideBlock>
+          <Space height={100} />
+          <SideBySideBlock columnTemplate="660px auto">
             <div>
               <Header1>Respecting the traditions</Header1>
               <FirstLine>
@@ -167,10 +201,15 @@ export default function Page() {
                 construction.
               </Text>
               <Text>
-                At a hallowed Mayan cemetery, a&nbsp;sacred ritual unfolded,
-                accompanied by&nbsp;offerings of cocoa beans, corn, candles, and
-                alcohol. All of which symbolized our deep respect for the
-                beliefs, traditions, and&nbsp;faith of the community.
+                <b>
+                  At a hallowed Mayan cemetery, a&nbsp;sacred ritual unfolded
+                </b>
+                , accompanied by&nbsp;offerings of cocoa beans, corn, candles,
+                and alcohol.
+              </Text>
+              <Text>
+                All of which symbolized our deep respect for the beliefs,
+                traditions, and&nbsp;faith of the community.
               </Text>
             </div>
             <Illustration7Svg />
@@ -198,38 +237,53 @@ export default function Page() {
                 Donna Gloria, her family, and&nbsp;countless others, now had
                 the&nbsp;vital access they desperately needed for&nbsp;medical
                 care. Their health and&nbsp;well-being were about to&nbsp;take
-                center stage as a&nbsp;new chapter began within
-                the&nbsp;clinic’s walls.
+                center stage as{" "}
+                <b>a&nbsp;new chapter began within the&nbsp;clinic’s walls</b>.
               </Text>
             </div>
           </SideBySideBlock>
-          <SideBySideBlock>
+          <Header1>The clinic’s first trial</Header1>
+          <FirstLine>
+            Despite Donna Gloria’s own struggles with asthma,
+          </FirstLine>
+          <SideBySideBlock columnTemplate="auto auto auto">
             <div>
-              <Header1>The clinic’s first trial</Header1>
-              <FirstLine>
-                Despite Donna Gloria’s own struggles with asthma,
-              </FirstLine>
               <Text>
                 she found solace in the&nbsp;care provided by&nbsp;dedicated
-                healthcare professionals. However, when Juan her husband started
-                experiencing deteriorating health, Donna Gloria’s anxiety
-                intensified. Especially because if Juan were to&nbsp;lose his
-                job as a&nbsp;bus driver, their family would face hunger.
+                healthcare professionals.
+              </Text>
+              <Text>
+                However, when Juan her husband started experiencing
+                deteriorating health, Donna Gloria’s anxiety intensified.
+                Especially because if Juan were to&nbsp;lose his job as
+                a&nbsp;bus driver, their family would face hunger.
+              </Text>
+              <Text>
                 Fearing the&nbsp;worst, she urged him to&nbsp;visit
                 the&nbsp;newly established clinic. And when he did, her
                 intuition was correct and her worst fears confirmed,
-                as&nbsp;Juan was diagnosed with&nbsp;diabetes.
-              </Text>
-              <Text>
-                The weight of&nbsp;uncertainty burdened her, until
-                a&nbsp;glimmer of&nbsp;hope emerged. Donna Gloria discovered
-                that the&nbsp;clinic provided the&nbsp;necessary treatment free
-                of&nbsp;charge. In that moment, her fears dissipated, replaced
-                by a&nbsp;sense of&nbsp;relief and&nbsp;gratitude.
+                <b>as&nbsp;Juan was diagnosed with&nbsp;diabetes</b>.
               </Text>
             </div>
             <Illustration9Svg />
+            <div>
+              <Text>
+                The weight of&nbsp;uncertainty burdened her, until
+                a&nbsp;glimmer of&nbsp;hope emerged.
+              </Text>
+              <Text>
+                Donna Gloria discovered that{" "}
+                <b>
+                  the&nbsp;clinic provided the&nbsp;necessary treatment free
+                  of&nbsp;charge
+                </b>
+                . In that moment, her fears dissipated, replaced by a&nbsp;sense
+                of&nbsp;relief and&nbsp;gratitude.
+              </Text>
+              <DonateButton>Become our sponsor</DonateButton>
+            </div>
           </SideBySideBlock>
+          <Space height={50} />
           <SideBySideBlock>
             <div>
               <Header1>Life transformed by Health & Help</Header1>
@@ -238,12 +292,15 @@ export default function Page() {
                 well-being, empowering them to&nbsp;reclaim their lives.
               </FirstLine>
               <Text>
-                Routine checkups, medication they couldn’t afford before,
+                <b>Routine checkups, medication they couldn’t afford before</b>,
                 and&nbsp;even lifesaving treatments are now within
-                their&nbsp;reach. And as for&nbsp;Donna Gloria, her health has
-                significantly improved. Sometimes she shows her appreciation
-                by&nbsp;bringing treats&nbsp; - tamales, banana ice cream,
-                and&nbsp;tortillas - as&nbsp;tokens of&nbsp;gratitude.
+                their&nbsp;reach.
+              </Text>
+              <Text>
+                And as for&nbsp;Donna Gloria, her health has significantly
+                improved. Sometimes she shows her appreciation by&nbsp;bringing
+                treats&nbsp; - tamales, banana ice cream, and&nbsp;tortillas -
+                as&nbsp;tokens of&nbsp;gratitude.
               </Text>
             </div>
             <Illustration10Svg />
@@ -254,36 +311,51 @@ export default function Page() {
               <FirstLine>Other times, she seeks care</FirstLine>
               <Text>
                 for&nbsp;her weary hands from kneading dough or&nbsp;discomfort
-                in&nbsp;her stomach. Thanks to the&nbsp;clinic, she receives
-                the&nbsp;necessary treatment, illuminating her life
-                with&nbsp;renewed hope.
+                in&nbsp;her stomach.
+              </Text>
+              <Text>
+                <b>
+                  Thanks to the&nbsp;clinic, she receives the&nbsp;necessary
+                  treatment
+                </b>
+                , illuminating her life with&nbsp;renewed hope.
               </Text>
             </div>
           </SideBySideBlock>
+          <Space height={50} />
           <SideBySideBlock>
             <div>
               <Header1>Take action and follow the journey</Header1>
-              <blockquote>
+              <Quote color="BLACK">
                 — If it hadn't been for&nbsp;you, I don’t know what we
                 would&nbsp;do. Before you came, there were no&nbsp;doctors here,
                 Domingo Sanchez
-              </blockquote>
-              <FirstLine>
-                For many villagers, the clinic became their guardian of
-                well-being, empowering them to&nbsp;reclaim their lives.
-              </FirstLine>
-              <Text>
-                Join us as&nbsp;we redefine the&nbsp;landscape
-                of&nbsp;compassion and care. Your support can amplify our
-                impact, extending the&nbsp;reach of the&nbsp;clinic
-                to&nbsp;neighbouring villages where dozens of&nbsp;people, like
-                Donna Gloria, struggle to&nbsp;live to&nbsp;their fullest.
-              </Text>
-              <Text>
-                Together, we can build a&nbsp;future where healthcare is
-                a&nbsp;fundamental right and&nbsp;hope flourishes. Be part
-                of&nbsp;our journey today!
-              </Text>
+              </Quote>
+              <SideBySideBlock>
+                <div>
+                  <Text>
+                    <b>
+                      Join us as&nbsp;we redefine the&nbsp;landscape
+                      of&nbsp;compassion and care.
+                    </b>
+                  </Text>
+                  <Text>
+                    Your support can amplify our impact, extending
+                    the&nbsp;reach of the&nbsp;clinic to&nbsp;neighbouring
+                    villages where dozens of&nbsp;people, like Donna Gloria,
+                    struggle to&nbsp;live to&nbsp;their fullest.
+                  </Text>
+                </div>
+                <div>
+                  <Text>
+                    <b>Together, we can build a&nbsp;future</b> where healthcare
+                    is a&nbsp;fundamental right and&nbsp;hope flourishes.
+                  </Text>
+                  <Text>
+                    <b>Be part of&nbsp;our journey today!</b>
+                  </Text>
+                </div>
+              </SideBySideBlock>
             </div>
             <Illustration12Svg />
           </SideBySideBlock>

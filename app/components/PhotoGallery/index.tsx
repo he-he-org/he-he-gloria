@@ -15,7 +15,7 @@ const REAL_IMAGE_MARKER_CLASS = "REAL_IMAGE_MARKER_CLASS";
 
 export default function PhotoGallery(props: Props) {
   const { images } = props;
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(2);
   const [offset, setOffset] = useState(0);
   const [offsetDif, setOffsetDif] = useState(0);
 
@@ -54,16 +54,16 @@ export default function PhotoGallery(props: Props) {
             transitionDuration: `${animationSpeed}ms`,
           }}
         >
-          {images.map((image, i) => (
-            <Img
-              isFake={true}
-              key={`${image.src}-fake-before`}
-              image={image}
-              onClick={() => {
-                setActive(i);
-              }}
-            />
-          ))}
+          {/*{images.map((image, i) => (*/}
+          {/*  <Img*/}
+          {/*    isFake={true}*/}
+          {/*    key={`${image.src}-fake-before`}*/}
+          {/*    image={image}*/}
+          {/*    onClick={() => {*/}
+          {/*      setActive(i);*/}
+          {/*    }}*/}
+          {/*  />*/}
+          {/*))}*/}
           {images.map((image, i) => (
             <Img
               key={image.src}
@@ -74,16 +74,16 @@ export default function PhotoGallery(props: Props) {
               }}
             />
           ))}
-          {images.map((image, i) => (
-            <Img
-              isFake={true}
-              key={`${image.src}-fake-after`}
-              image={image}
-              onClick={() => {
-                setActive(i);
-              }}
-            />
-          ))}
+          {/*{images.map((image, i) => (*/}
+          {/*  <Img*/}
+          {/*    isFake={true}*/}
+          {/*    key={`${image.src}-fake-after`}*/}
+          {/*    image={image}*/}
+          {/*    onClick={() => {*/}
+          {/*      setActive(i);*/}
+          {/*    }}*/}
+          {/*  />*/}
+          {/*))}*/}
         </div>
       </div>
       <div className={s.controls}>

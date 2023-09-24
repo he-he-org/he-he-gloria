@@ -1,7 +1,7 @@
 import s from './index.module.scss'
 
 interface Props {
-  children: string;
+  children: React.ReactNode;
 }
 
 export default function P(props: Props) {
