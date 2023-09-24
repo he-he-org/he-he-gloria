@@ -19,7 +19,7 @@ export default function PhotoGallery(props: Props) {
   const [offset, setOffset] = useState(0);
   const [offsetDif, setOffsetDif] = useState(0);
 
-  const imagesRef = useRef<HTMLDivElement>();
+  const imagesRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (imagesRef.current) {
       const children = [...imagesRef.current?.children];
@@ -66,7 +66,6 @@ export default function PhotoGallery(props: Props) {
           ))}
           {images.map((image, i) => (
             <Img
-              isFake={false}
               key={image.src}
               image={image}
               isActive={i === active}
@@ -104,8 +103,8 @@ export default function PhotoGallery(props: Props) {
 
 function Img(props: {
   image: ImageInfo;
-  isFake: boolean;
-  isActive: boolean;
+  isFake?: boolean;
+  isActive?: boolean;
   onClick: () => void;
 }) {
   const { src, title } = props.image;

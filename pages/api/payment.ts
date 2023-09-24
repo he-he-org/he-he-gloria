@@ -79,7 +79,10 @@ export default async function handler(req, res) {
   const ENV = process.env.ENV === "development" ? "development" : "production";
   const settings: EnvSettings = envSettings[ENV];
 
-  console.log("body", body)
+  if (SECRET_KEY == null) {
+    throw new Error(`SECRET_KEY is not provided`)
+  }
+
   const decoded = PaymentRequestCodec.decode(body);
   if (isLeft(decoded)) {
     res
@@ -101,7 +104,7 @@ export default async function handler(req, res) {
 
   const { mode, amount, productKey } = params;
 
-  const product = settings.products.find((x) => x.key === productKey);
+  const product = settings.products.find((x) => x.productId === productKey);
   if (product == null) {
     return {
       tag: "FAILED",
@@ -121,8 +124,8 @@ export default async function handler(req, res) {
     }
     const sessionParams: Stripe.Checkout.SessionCreateParams =
       mode === "subscription"
-        ? subscription(parseInt(amount), product.stripeId, baseUrl, lang)
-        : oneTimePayment(parseInt(amount), product.stripeId, baseUrl, lang);
+        ? subscription(parseInt(amount), product.productId, baseUrl, lang)
+        : oneTimePayment(parseInt(amount), product.productId, baseUrl, lang);
     const session = await stripeInstance.checkout.sessions.create(
       sessionParams
     );

@@ -21,10 +21,10 @@ const ENV: { [env in "development" | "production"]: EnvSettings } = {
     stripe: {
       products: {
         "25_DOLLARS": {
-          stripeId: "prod_OEQONs5h2V2h1b",
+          stripeProductId: "prod_OEQONs5h2V2h1b",
         },
         "50_DOLLARS": {
-          stripeId: "prod_IbKROvifqeNrBt",
+          stripeProductId: "prod_IbKROvifqeNrBt",
         },
       },
     },

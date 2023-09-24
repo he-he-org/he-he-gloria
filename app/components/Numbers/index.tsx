@@ -1,7 +1,6 @@
 import s from "./index.module.scss";
 
 interface Props {
-  children: string;
 }
 
 export default function Numbers(props: Props) {

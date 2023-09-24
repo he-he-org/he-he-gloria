@@ -134,7 +134,7 @@ export default function Page() {
             <div>
               <Header1>Gaining trust</Header1>
               <FirstLine>
-                The journey to build the clinic was not an easy one.{" "}
+                The journey to build the clinic was not an easy one.
               </FirstLine>
               <Text>
                 But as days turned into weeks, the&nbsp;clinic’s construction
@@ -156,7 +156,7 @@ export default function Page() {
                 To&nbsp;earn the&nbsp;trust and acceptance of
                 the&nbsp;villagers, Vika and&nbsp;Karina embarked on
                 a&nbsp;mission to&nbsp;honor the&nbsp;local customs
-                and&nbsp;beliefs.{" "}
+                and&nbsp;beliefs.
               </FirstLine>
               <Text>
                 Together with the&nbsp;locals and with the&nbsp;assistance of
