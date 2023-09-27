@@ -69,7 +69,10 @@ export default function Page() {
               <Text>
                 a resilient and hard-working woman living in
                 the&nbsp;picturesque <b>village of Chuinajtajuyub, Guatemala</b>
-                . This village nestled amidst breathtaking mountains fosters
+                .
+              </Text>
+              <Text>
+                This village nestled amidst breathtaking mountains fosters
                 a&nbsp;close-knit community. However, faces challenges when it
                 comes to&nbsp;accessing quality healthcare. Donna Gloria with
                 her big heart and&nbsp;even bigger family, understands
@@ -102,10 +105,12 @@ export default function Page() {
                 As&nbsp;she cooks over an&nbsp;open fire,&nbsp; Donna Gloria
                 often finds it difficult to&nbsp;breathe due to&nbsp;her asthma.
                 Yet, with an&nbsp;unwavering spirit, she faces each day with
-                a&nbsp;smile. But deep down she knows that{" "}
-                <b>there’s nothing she can do</b> —&nbsp; as all&nbsp;doctors
-                are far&nbsp;away from her&nbsp;village and medications are
-                always expensive.
+                a&nbsp;smile.
+              </Text>
+              <Text>
+                But deep down she knows that <b>there’s nothing she can do</b>{" "}
+                —&nbsp; as all&nbsp;doctors are far&nbsp;away from
+                her&nbsp;village and medications are always expensive.
               </Text>
             </div>
             <Illustration2Svg />
@@ -141,24 +146,30 @@ export default function Page() {
                 the&nbsp;3 nearby villages - Kiche, Hueuetenango, and
                 Totonicapan.
               </Quote>
-              <Text>
-                <b>
-                  When our founders, Vika and&nbsp;Karina, discovered this
-                  village
-                </b>
-                , they immediately recognized the&nbsp;dire need
-                for&nbsp;medical support.
-              </Text>
-              <Text>
-                Determined to&nbsp;make a&nbsp;difference, they embarked on
-                a&nbsp;journey to&nbsp;establish the&nbsp;1st clinic
-                in&nbsp;Chuinajtajuyub.
-              </Text>
-              <Text>
-                <b>However, their path was not without challenges.</b>{" "}
-                Skepticism lingered among the villagers, unsure of the impact
-                this initiative could bring.
-              </Text>
+              <SideBySideBlock>
+                <div>
+                  <Text>
+                    <b>
+                      When our founders, Vika and&nbsp;Karina, discovered this
+                      village
+                    </b>
+                    , they immediately recognized the&nbsp;dire need
+                    for&nbsp;medical support.
+                  </Text>
+                  <Text>
+                    Determined to&nbsp;make a&nbsp;difference, they embarked on
+                    a&nbsp;journey to&nbsp;establish the&nbsp;1st clinic
+                    in&nbsp;Chuinajtajuyub.
+                  </Text>
+                </div>
+                <div>
+                  <Text>
+                    <b>However, their path was not without challenges.</b>
+                    Skepticism lingered among the villagers, unsure of the
+                    impact this initiative could bring.
+                  </Text>
+                </div>
+              </SideBySideBlock>
             </div>
             <Illustration4Svg />
           </SideBySideBlock>
@@ -184,6 +195,9 @@ export default function Page() {
                 Brick by brick, it stood as a&nbsp;testament to&nbsp;the
                 collective effort and&nbsp;belief in a&nbsp;better tomorrow.
               </Text>
+              <DonateButton href={`#${DONATE_FORM_ANCHOR}`}>
+                Become our sponsor
+              </DonateButton>
             </div>
           </SideBySideBlock>
           <Space height={100} />
@@ -198,25 +212,34 @@ export default function Page() {
                 a&nbsp;mission to&nbsp;honor the&nbsp;local customs
                 and&nbsp;beliefs.
               </FirstLine>
-              <Text>
-                Together with the&nbsp;locals and with the&nbsp;assistance of
-                the&nbsp;mayor, we prepared the clinic for its launch, but
-                not&nbsp;without the&nbsp;community’s approval. As
-                a&nbsp;result, we arranged for the&nbsp;presence of
-                a&nbsp;revered shaman who would bless the&nbsp;clinic's
-                construction.
-              </Text>
-              <Text>
-                <b>
-                  At a hallowed Mayan cemetery, a&nbsp;sacred ritual unfolded
-                </b>
-                , accompanied by&nbsp;offerings of cocoa beans, corn, candles,
-                and alcohol.
-              </Text>
-              <Text>
-                All of which symbolized our deep respect for the beliefs,
-                traditions, and&nbsp;faith of the community.
-              </Text>
+              <SideBySideBlock>
+                <div>
+                  <Text>
+                    Together with the&nbsp;locals and with the&nbsp;assistance
+                    of the&nbsp;mayor, we prepared the clinic for its launch,
+                    but not&nbsp;without the&nbsp;community’s approval.
+                  </Text>
+                  <Text>
+                    As a&nbsp;result, we arranged for the&nbsp;presence of
+                    a&nbsp;revered shaman who would bless the&nbsp;clinic's
+                    construction.
+                  </Text>
+                </div>
+                <div>
+                  <Text>
+                    <b>
+                      At a hallowed Mayan cemetery, a&nbsp;sacred ritual
+                      unfolded
+                    </b>
+                    , accompanied by&nbsp;offerings of cocoa beans, corn,
+                    candles, and alcohol.
+                  </Text>
+                  <Text>
+                    All of which symbolized our deep respect for the beliefs,
+                    traditions, and&nbsp;faith of the community.
+                  </Text>
+                </div>
+              </SideBySideBlock>
             </div>
             <Illustration7Svg />
           </SideBySideBlock>
@@ -267,8 +290,8 @@ export default function Page() {
               <Text>
                 Fearing the&nbsp;worst, she urged him to&nbsp;visit
                 the&nbsp;newly established clinic. And when he did, her
-                intuition was correct and her worst fears confirmed,
-                <b>as&nbsp;Juan was diagnosed with&nbsp;diabetes</b>.
+                intuition was correct and her worst fears confirmed, as&nbsp;
+                <b>Juan was diagnosed with&nbsp;diabetes</b>.
               </Text>
             </div>
             <Illustration9Svg />
