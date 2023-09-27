@@ -16,6 +16,7 @@ export default function ShowHide(props: Props) {
           opacity: isVisible ? 1 : 0,
           transitionDuration: `${animationTime ?? 500}ms`,
           transitionProperty: "opacity",
+          transitionTimingFunction: "cubic-bezier(0.58, 0.01, 0.58, 1)",
         },
       })}
     </>

@@ -9,10 +9,10 @@ export default function Map() {
   useLayoutEffect(() => {
     setTimeout(() => {
       setShow(true);
-    }, 3000);
+    }, 800);
   }, []);
   return (
-    <ShowHide isVisible={show} animationTime={1000}>
+    <ShowHide isVisible={show} animationTime={4000}>
       {(props) => (
         <Illustration1Svg
           style={{
