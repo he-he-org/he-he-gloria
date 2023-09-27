@@ -16,7 +16,7 @@ async function sleep(ms: number): Promise<void> {
   });
 }
 
-export default function Numbers(props: Props) {
+export default function Numbers() {
   const [volunteersCount, setVolunteersCount] = useState(0);
   const [countriesCount, setCountriesCount] = useState(0);
   const [clinicsCount, setClinicsCount] = useState(0);

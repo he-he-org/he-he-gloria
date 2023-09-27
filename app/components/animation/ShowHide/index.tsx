@@ -3,7 +3,7 @@ import React from "react";
 
 interface Props {
   isVisible: boolean;
-  animationTime: number
+  animationTime: number;
   children: (htmlProps: { style: Record<string, unknown> }) => React.ReactNode;
 }
 
@@ -20,10 +20,4 @@ export default function ShowHide(props: Props) {
       })}
     </>
   );
-}
-
-function range(to: number): unknown[] {
-  const result = [];
-  result.length = to;
-  return result;
 }
