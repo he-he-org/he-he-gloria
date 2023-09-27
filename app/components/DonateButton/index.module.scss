@@ -19,8 +19,10 @@
   color: globals.$colors-red;
   background-color: transparent;
   min-height: 56px;
+  text-decoration: none;
 
-  &:disabled {
+  &:disabled,
+  &.isDisabled {
     opacity: 0.5;
     pointer-events: none;
   }

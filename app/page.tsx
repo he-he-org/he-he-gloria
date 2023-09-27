@@ -28,7 +28,7 @@ import Numbers from "./components/Numbers";
 import PhotoGallery from "./components/PhotoGallery";
 import Quote from "./components/Quote";
 import Space from "./components/Space";
-import { DonateForm } from "./components/DonateForm";
+import { DONATE_FORM_ANCHOR, DonateForm } from "./components/DonateForm";
 import Map from "./components/Map";
 
 export default function Page() {
@@ -50,7 +50,9 @@ export default function Page() {
                 villages of&nbsp;Guatemala and&nbsp;Nicaragua.
               </Text>
               <div style={{ marginTop: 48 }}>
-                <DonateButton>Become our sponsor</DonateButton>
+                <DonateButton href={`#${DONATE_FORM_ANCHOR}`}>
+                  Become our sponsor
+                </DonateButton>
               </div>
             </div>
             <Numbers />
@@ -284,7 +286,9 @@ export default function Page() {
                 . In that moment, her fears dissipated, replaced by a&nbsp;sense
                 of&nbsp;relief and&nbsp;gratitude.
               </Text>
-              <DonateButton>Become our sponsor</DonateButton>
+              <DonateButton href={`#${DONATE_FORM_ANCHOR}`}>
+                Become our sponsor
+              </DonateButton>
             </div>
           </SideBySideBlock>
           <Space height={50} />
