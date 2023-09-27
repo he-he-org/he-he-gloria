@@ -336,8 +336,8 @@ export default function Page() {
             </div>
             <Illustration10Svg />
           </SideBySideBlock>
-          <SideBySideBlock>
-            <Illustration11Svg />
+          <SideBySideBlock columnTemplate="5fr 3fr">
+            <Illustration11Svg style={{ marginLeft: 'auto'}} />
             <div>
               <FirstLine>Other times, she seeks care</FirstLine>
               <Text>
