@@ -4,6 +4,7 @@ import SideBySideBlock from "./components/SideBySideBlock";
 import Text from "./components/Text";
 import s from "./page.module.scss";
 import DonnaGloriaSvg from "./assets/donna_gloria.svg";
+import Illustration1Svg from "./assets/illustration_1.svg";
 import Illustration2Svg from "./assets/illustration_2.svg";
 import Illustration3Svg from "./assets/illustration_3.svg";
 import Illustration4Svg from "./assets/illustration_4.svg";
@@ -27,6 +28,8 @@ import Numbers from "./components/Numbers";
 import PhotoGallery from "./components/PhotoGallery";
 import Quote from "./components/Quote";
 import Space from "./components/Space";
+import { DonateForm } from "./components/DonateForm";
+import Map from "./components/Map";
 
 export default function Page() {
   return (
@@ -51,8 +54,9 @@ export default function Page() {
               </div>
             </div>
             <Numbers />
+            <Map />
           </SideBySideBlock>
-          <Space height={50} />
+          <Space height={150} />
           <SideBySideBlock>
             <div>
               <DonnaGloriaSvg />
@@ -359,22 +363,34 @@ export default function Page() {
             </div>
             <Illustration12Svg />
           </SideBySideBlock>
+          <DonateForm />
           <Header1>Health & Help in real life</Header1>
         </div>
       </div>
       <PhotoGallery
         images={[
-          { src: Photo01.src, title: "Señora waiting in line (Photo01)" },
-          { src: Photo02.src, title: "Señora waiting in line (Photo02)" },
-          { src: Photo03.src, title: "Señora waiting in line (Photo03)" },
-          { src: Photo04.src, title: "Señora waiting in line (Photo04)" },
-          { src: Photo05.src, title: "Señora waiting in line (Photo05)" },
+          { src: Photo01.src, title: "Señora waiting in line" },
+          {
+            src: Photo02.src,
+            title: "Hands down, the coolest way to pass time while queuing",
+          },
+          {
+            src: Photo03.src,
+            title:
+              "Our doctors seem to have found something surprising. Is it twins?",
+          },
+          {
+            src: Photo04.src,
+            title:
+              "Peace of mind for the mother - and a sweet treat for the kid",
+          },
+          {
+            src: Photo05.src,
+            title:
+              "When in doubt, we get a consult from other specialists in the clinic",
+          },
         ]}
       />
     </div>
   );
-}
-
-function DonnaGloriaReact() {
-  return <></>;
 }

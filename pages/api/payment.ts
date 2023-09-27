@@ -7,13 +7,10 @@ import { isLeft } from "fp-ts/Either";
 import { PathReporter } from "io-ts/PathReporter";
 import { EnvSettings } from "../../shared/env";
 
-//
-// const envSettings = require("../../envSettings.json");
-//
-const SUCCESS_URL = "/success";
+import envSettings from "../../envSettings";
+
+const SUCCESS_URL = "/";
 const CANCEL_URL = "/";
-// const LANGS = process.env.LANGS.split(",");
-// const DEFAULT_LANG = process.env.DEFAULT_LANG;
 const LANGS = ["en"];
 const DEFAULT_LANG = "en";
 
@@ -70,8 +67,6 @@ function subscription(
   };
 }
 
-const envSettings = require("../../envSettings");
-
 export default async function handler(req, res) {
   const { body } = req;
   const SECRET_KEY = process.env.STRIPE_SECRET_KEY;
@@ -80,7 +75,7 @@ export default async function handler(req, res) {
   const settings: EnvSettings = envSettings[ENV];
 
   if (SECRET_KEY == null) {
-    throw new Error(`SECRET_KEY is not provided`)
+    throw new Error(`SECRET_KEY is not provided`);
   }
 
   const decoded = PaymentRequestCodec.decode(body);
@@ -92,25 +87,21 @@ export default async function handler(req, res) {
   }
   const request: PaymentRequest = decoded.right;
 
-  const { params, paymentMethod } = request;
+  const { params, productId, paymentMethod } = request;
 
   if (paymentMethod !== "stripe") {
-    return {
-      tag: "FAILED",
-      code: 400,
-      message: `Method is not supported: ${paymentMethod}"`,
-    };
+    res.status(400).send(`Method is not supported: ${paymentMethod}"`);
+    return;
   }
 
-  const { mode, amount, productKey } = params;
+  const { mode, amount } = params;
 
-  const product = settings.products.find((x) => x.productId === productKey);
-  if (product == null) {
-    return {
-      tag: "FAILED",
-      code: 400,
-      message: `Unable to find product by key "${productKey}"`,
-    };
+  const stripeProduct = settings.stripe?.products?.[productId];
+  if (stripeProduct == null) {
+    res
+      .status(400)
+      .send(`Unable to find stripe product by product key "${productId}"`);
+    return;
   }
 
   try {
@@ -120,24 +111,36 @@ export default async function handler(req, res) {
     });
     const baseUrl = lang === DEFAULT_LANG ? BASE_URL : `${BASE_URL}/${lang}`;
     if (baseUrl == null) {
-      throw new Error(`Empty base url`)
+      throw new Error(`Empty base url`);
     }
     const sessionParams: Stripe.Checkout.SessionCreateParams =
       mode === "subscription"
-        ? subscription(parseInt(amount), product.productId, baseUrl, lang)
-        : oneTimePayment(parseInt(amount), product.productId, baseUrl, lang);
+        ? subscription(
+            parseInt(amount),
+            stripeProduct.stripeProductId,
+            baseUrl,
+            lang
+          )
+        : oneTimePayment(
+            parseInt(amount),
+            stripeProduct.stripeProductId,
+            baseUrl,
+            lang
+          );
+    console.log("sessionParams", JSON.stringify(sessionParams, null, 4));
     const session = await stripeInstance.checkout.sessions.create(
       sessionParams
     );
-    res.status(200).send(
+    console.log("session", session);
+    res.status(200);
+    res.send(
       JSON.stringify({
         location: session.url,
       })
     );
   } catch (e) {
-    console.log(e);
-    res
-      .status(500)
-      .send(e.message ?? "Something has gone wrong on our side, sorry :(");
+    console.error(e);
+    res.status(500);
+    res.send(e.message ?? "Something has gone wrong on our side, sorry :(");
   }
 }

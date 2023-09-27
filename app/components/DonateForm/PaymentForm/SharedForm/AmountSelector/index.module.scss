@@ -1,0 +1,23 @@
+@use "app/globals";
+
+.root {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  gap: 16px;
+}
+
+.item {
+  border-radius: 22px;
+  border: 2px solid globals.$colors-black;
+  background: transparent;
+  padding: 12px 16px;
+  min-height: 56px;
+  font-size: 24px;
+  font-weight: 300;
+
+  &.isActive {
+    background: globals.$colors-red;
+    color: white;
+    border-color: globals.$colors-red;
+  }
+}

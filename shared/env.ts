@@ -1,10 +1,12 @@
 export type Product = {
   productId: string;
   amount: number;
+  description: string;
 };
 
 export type StripeProduct = {
   stripeProductId: string;
+  subscription: boolean;
 };
 
 type StripeConfig = {

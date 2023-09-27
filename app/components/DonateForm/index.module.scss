@@ -1,0 +1,32 @@
+@use "app/globals";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  position: relative;
+  padding-left: 100px;
+  padding-top: 123px;
+  padding-bottom: 120px;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  color: globals.$colors-red;
+  padding-left: 210px;
+}
+
+.body {
+  display: flex;
+}
+
+.illustration {
+  margin: 0 60px;
+}
