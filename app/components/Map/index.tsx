@@ -18,7 +18,7 @@ export default function Map() {
         let delay = 0;
         for (const child of children) {
           const el = child as SVGPathElement;
-          const animationTime = 2000;
+          const animationTime = 500;
           if (el.id === 'titles') {
             const groups = queryPathGroups(el, 'draw\\:reverse');
             console.log("groups", groups)
@@ -28,10 +28,6 @@ export default function Map() {
               animationTime: animationTime,
               delay,
             });
-            el.style.opacity = `${show ? 1 : 0}`;
-            el.style.transitionProperty = `opacity`;
-            el.style.transitionDuration = `${show ? animationTime : 0}ms`;
-            el.style.transitionDelay = `${show ? delay : 0}ms`;
             delay += animationTime;
           }
         }
@@ -42,7 +38,7 @@ export default function Map() {
   useLayoutEffect(() => {
     setTimeout(() => {
       setShow(true);
-    }, 2000);
+    }, 500);
   }, []);
 
   return (

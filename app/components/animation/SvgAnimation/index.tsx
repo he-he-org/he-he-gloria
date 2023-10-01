@@ -151,6 +151,7 @@ export function animateOpacity(
   const { delay = 0, show, animationTime } = params;
   pathElement.style.opacity = `${show ? 1 : 0}`;
   pathElement.style.transitionProperty = `opacity`;
+  pathElement.style.transitionTimingFunction = `ease-in-out`;
   pathElement.style.transitionDuration = `${show ? animationTime : 0}ms`;
   pathElement.style.transitionDelay = `${show ? delay : 0}ms`;
 }

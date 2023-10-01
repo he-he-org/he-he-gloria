@@ -1,28 +1,34 @@
+"use client";
 import { useLayoutEffect, useState } from "react";
 
+function useWindow(): Window | null {
+  return typeof "window" === "object" ? window : null;
+}
 export function useScrollPosition() {
-  const [position, setPosition] = useState(window.scrollY);
+  const window = useWindow();
+  const [position, setPosition] = useState(window?.scrollY ?? 0);
   useLayoutEffect(() => {
     const handler = () => {
-      setPosition(window.scrollY);
+      setPosition(window?.scrollY ?? 0);
     };
-    window.addEventListener(`scroll`, handler);
+    window?.addEventListener(`scroll`, handler);
     return () => {
-      window.removeEventListener("scroll", handler);
+      window?.removeEventListener("scroll", handler);
     };
   }, []);
   return position;
 }
 
 export function useViewportHeight() {
-  const [value, setValue] = useState(window.innerHeight);
+  const window = useWindow();
+  const [value, setValue] = useState(window?.innerHeight ?? 0);
   useLayoutEffect(() => {
     const handler = () => {
-      setValue(window.innerHeight);
+      setValue(window?.innerHeight ?? 0);
     };
-    window.addEventListener(`resize`, handler);
+    window?.addEventListener(`resize`, handler);
     return () => {
-      window.removeEventListener("resize", handler);
+      window?.removeEventListener("resize", handler);
     };
   }, []);
   return value;
