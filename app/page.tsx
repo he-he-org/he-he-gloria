@@ -30,6 +30,7 @@ import Quote from "./components/Quote";
 import Space from "./components/Space";
 import { DONATE_FORM_ANCHOR, DonateForm } from "./components/DonateForm";
 import Map from "./components/Map";
+import SvgAnimation from "./components/animation/SvgAnimation";
 
 export default function Page() {
   return (
@@ -60,9 +61,9 @@ export default function Page() {
           </SideBySideBlock>
           <Space height={150} />
           <SideBySideBlock>
-            <div>
+            <SvgAnimation>
               <DonnaGloriaSvg />
-            </div>
+            </SvgAnimation>
             <div>
               <Header1>This is Gloria</Header1>
               <FirstLine>Meet Donna Gloria, </FirstLine>
@@ -113,11 +114,15 @@ export default function Page() {
                 her&nbsp;village and medications are always expensive.
               </Text>
             </div>
-            <Illustration2Svg />
+            <SvgAnimation>
+              <Illustration2Svg />
+            </SvgAnimation>
           </SideBySideBlock>
           <Space height={50} />
           <SideBySideBlock>
-            <Illustration3Svg />
+            <SvgAnimation>
+              <Illustration3Svg />
+            </SvgAnimation>
             <div>
               <FirstLine>
                 Donna Gloria is not alone in&nbsp;her struggles.
@@ -171,11 +176,15 @@ export default function Page() {
                 </div>
               </SideBySideBlock>
             </div>
-            <Illustration4Svg />
+            <SvgAnimation>
+              <Illustration4Svg />
+            </SvgAnimation>
           </SideBySideBlock>
           <Space height={50} />
           <SideBySideBlock>
-            <Illustration5Svg />
+            <SvgAnimation>
+              <Illustration5Svg />
+            </SvgAnimation>
             <div>
               <Header1>Gaining trust</Header1>
               <FirstLine>
@@ -201,7 +210,9 @@ export default function Page() {
             </div>
           </SideBySideBlock>
           <Space height={100} />
-          <Illustration6Svg />
+          <SvgAnimation>
+            <Illustration6Svg />
+          </SvgAnimation>
           <Space height={100} />
           <SideBySideBlock columnTemplate="660px auto">
             <div>
@@ -241,7 +252,9 @@ export default function Page() {
                 </div>
               </SideBySideBlock>
             </div>
-            <Illustration7Svg />
+            <SvgAnimation>
+              <Illustration7Svg />
+            </SvgAnimation>
           </SideBySideBlock>
         </div>
         {/*<BgGradientSvg className={[s.bgGradient, s.top].join(' ')} />*/}
@@ -249,12 +262,16 @@ export default function Page() {
       </div>
       <div className={s.white}>
         <div className={s.dishAndGradient}>
-          <DishSvg className={s.dish} />
+          <SvgAnimation>
+            <DishSvg className={s.dish} />
+          </SvgAnimation>
           <BgGradientSvg className={[s.bgGradient, s.bottom].join(" ")} />
         </div>
         <div className={s.content}>
           <SideBySideBlock>
-            <Illustration8Svg />
+            <SvgAnimation>
+              <Illustration8Svg />
+            </SvgAnimation>
             <div>
               <Header1>The clinic is open</Header1>
               <FirstLine>
@@ -294,7 +311,9 @@ export default function Page() {
                 <b>Juan was diagnosed with&nbsp;diabetes</b>.
               </Text>
             </div>
-            <Illustration9Svg />
+            <SvgAnimation>
+              <Illustration9Svg />
+            </SvgAnimation>
             <div>
               <Text>
                 The weight of&nbsp;uncertainty burdened her, until
@@ -334,10 +353,14 @@ export default function Page() {
                 as&nbsp;tokens of&nbsp;gratitude.
               </Text>
             </div>
-            <Illustration10Svg />
+            <SvgAnimation>
+              <Illustration10Svg />
+            </SvgAnimation>
           </SideBySideBlock>
           <SideBySideBlock columnTemplate="5fr 3fr">
-            <Illustration11Svg style={{ marginLeft: 'auto'}} />
+            <SvgAnimation>
+              <Illustration11Svg style={{ marginLeft: "auto" }} />
+            </SvgAnimation>
             <div>
               <FirstLine>Other times, she seeks care</FirstLine>
               <Text>
@@ -388,7 +411,9 @@ export default function Page() {
                 </div>
               </SideBySideBlock>
             </div>
-            <Illustration12Svg />
+            <SvgAnimation>
+              <Illustration12Svg />
+            </SvgAnimation>
           </SideBySideBlock>
           <DonateForm />
           <Header1>Health & Help in real life</Header1>

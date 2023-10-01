@@ -1,0 +1,49 @@
+@use "app/globals";
+@import "assets/metropolis/stylesheet.css";
+@import "assets/polite-type/stylesheet.css";
+
+html, body {
+  font-family: Metropolis, Proxima Nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 125%;
+  letter-spacing: -0.2px;
+}
+
+button {
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :disabled {
+    opacity: 0.5;
+  }
+}
+
+b {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+svg .caption_svg__mask {
+  stroke-dasharray: 482.4996643066406;
+  stroke-dashoffset: 0;
+  animation-name: dashdraw;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  stroke: globals.$colors-black;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+@keyframes dashdraw {
+  to {
+    stroke-dashoffset: -482.4996643066406;
+  }
+}

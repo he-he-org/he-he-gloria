@@ -1,8 +1,11 @@
+@use "app/globals";
 @import "assets/metropolis/stylesheet.css";
 @import "assets/polite-type/stylesheet.css";
 
-html, body {
-  font-family: Metropolis, Proxima Nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
+html,
+body {
+  font-family: Metropolis, Proxima Nova, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 200;
@@ -23,4 +26,15 @@ button {
 b {
   font-weight: 700;
   letter-spacing: 0.01em;
+}
+
+svg {
+  path[id^="draw\/"],
+  g[id^="draw\/"] path,
+  path[id^="draw\:reverse\/"],
+  g[id^="draw\:reverse\/"] path {
+    stroke-dashoffset: 0;
+    transition-property: stroke-dashoffset;
+    transition-timing-function: linear;
+  }
 }
