@@ -2,7 +2,7 @@
 import { useLayoutEffect, useState } from "react";
 
 function useWindow(): Window | null {
-  return typeof "window" === "object" ? window : null;
+  return global?.window ?? null
 }
 export function useScrollPosition() {
   const window = useWindow();
