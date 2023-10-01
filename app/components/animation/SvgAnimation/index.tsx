@@ -47,20 +47,20 @@ export default function SvgAnimation(props: Props) {
         const groups: Array<SVGPathElement[]> = queryPathGroups(ref, "draw\\/");
         for (const group of groups) {
           let delay = 0;
-          let totalLength = group.reduce(
+          const totalLength = group.reduce(
             (acc, x) => acc + x.getTotalLength(),
             0
           );
-          let totalAnimationTime = Math.min(MAX_ANIMATION_TIME, totalLength / ANIMATION_SPEED);
-          console.log("totalLength", totalLength)
-          console.log("totalAnimationTime", totalAnimationTime)
+          const totalAnimationTime = Math.min(
+            MAX_ANIMATION_TIME,
+            totalLength / ANIMATION_SPEED
+          );
           for (const maskElement of group) {
             const length = maskElement.getTotalLength();
             // const animationTime = length / ANIMATION_SPEED;
             const animationTime = totalAnimationTime * (length / totalLength);
 
-            animatePath(maskElement, {
-              reverse: false,
+            animateDraw(maskElement, {
               animationTime,
               delay,
               show,
@@ -80,8 +80,7 @@ export default function SvgAnimation(props: Props) {
           for (const maskElement of group) {
             const length = maskElement.getTotalLength();
             const animationTime = length / REVERSE_ANIMATION_SPEED;
-            animatePath(maskElement, {
-              reverse: true,
+            animateReverseDraw(maskElement, {
               animationTime,
               show,
             });
@@ -112,7 +111,7 @@ export default function SvgAnimation(props: Props) {
           }px)`;
         } else if (parallaxElement.id.startsWith("parallax:transparency")) {
           const opacity =
-            progress < 0.3 ? 0 : Math.min(1, (progress - 0.3) * 10);
+            progress < 0.4 ? 0 : Math.min(1, (progress - 0.4) * 10);
           parallaxElement.style.opacity = `${opacity}`;
         }
       }
@@ -122,8 +121,8 @@ export default function SvgAnimation(props: Props) {
   return <div ref={setRef}>{children}</div>;
 }
 
-function queryPathGroups(
-  parent: HTMLElement,
+export function queryPathGroups(
+  parent: HTMLElement | SVGElement,
   idPrefix: string
 ): Array<SVGPathElement[]> {
   const groups: Array<SVGPathElement[]> = [];
@@ -141,31 +140,57 @@ function queryPathGroups(
   return groups;
 }
 
-function animatePath(
+export function animateOpacity(
   pathElement: SVGPathElement,
   params: {
-    reverse: boolean;
     animationTime: number;
     show: boolean;
     delay?: number;
   }
 ) {
-  const { reverse, delay = 0, show, animationTime } = params;
+  const { delay = 0, show, animationTime } = params;
+  pathElement.style.opacity = `${show ? 1 : 0}`;
+  pathElement.style.transitionProperty = `opacity`;
+  pathElement.style.transitionDuration = `${show ? animationTime : 0}ms`;
+  pathElement.style.transitionDelay = `${show ? delay : 0}ms`;
+}
+
+export function animateDraw(
+  pathElement: SVGPathElement,
+  params: {
+    animationTime: number;
+    show: boolean;
+    delay?: number;
+  }
+) {
+  const { delay = 0, show, animationTime } = params;
   const length = pathElement.getTotalLength();
   pathElement.style.strokeDasharray = `${length}`;
   // const animationSpeed = reverse ? REVERSE_ANIMATION_SPEED : ANIMATION_SPEED;
   // const animationTime = length / animationSpeed;
   pathElement.style.transitionDuration = show ? `${animationTime}ms` : "0ms";
   pathElement.style.transitionDelay = show ? `${delay}ms` : "0ms";
-  if (reverse) {
-    if (show) {
-      pathElement.style.strokeDashoffset = `-${length}`;
-    }
+  if (show) {
+    pathElement.style.strokeDashoffset = `0`;
   } else {
-    if (show) {
-      pathElement.style.strokeDashoffset = `0`;
-    } else {
-      pathElement.style.strokeDashoffset = `${length}`;
-    }
+    pathElement.style.strokeDashoffset = `${length}`;
+  }
+}
+
+export function animateReverseDraw(
+  pathElement: SVGPathElement,
+  params: {
+    animationTime: number;
+    show: boolean;
+    delay?: number;
+  }
+) {
+  const { delay, show, animationTime } = params;
+  const length = pathElement.getTotalLength();
+  pathElement.style.strokeDasharray = `${length}`;
+  pathElement.style.transitionDuration = show ? `${animationTime}ms` : "0ms";
+  pathElement.style.transitionDelay = show ? `${delay}ms` : "0ms";
+  if (show) {
+    pathElement.style.strokeDashoffset = `-${length}`;
   }
 }
