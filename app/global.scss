@@ -35,6 +35,7 @@ svg {
   g[id^="draw\:reverse\/"] path {
     stroke-dashoffset: 0;
     transition-property: stroke-dashoffset;
-    transition-timing-function: linear;
+    //transition-timing-function: linear;
+    transition-timing-function: ease-in-out;
   }
 }

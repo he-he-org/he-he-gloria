@@ -1,6 +1,5 @@
 "use client";
-import React, { useLayoutEffect, useState } from "react";
-import s from "./index.module.scss";
+import React, { useLayoutEffect, useMemo, useState } from "react";
 import { useScrollPosition, useViewportHeight } from "../../../helpers/browser";
 
 interface Props {
@@ -8,7 +7,10 @@ interface Props {
 }
 
 const ANIMATION_SPEED = 0.2; // pixels per ms
-const REVERSE_ANIMATION_SPEED = ANIMATION_SPEED * 6; // pixels per ms
+const MAX_ANIMATION_TIME = 7000;
+const REVERSE_ANIMATION_SPEED = ANIMATION_SPEED * 3; // pixels per ms
+const PARALLAX_SPEED = 0.1;
+const PARALLAX_SHIFT = 500;
 
 export default function SvgAnimation(props: Props) {
   const { children } = props;
@@ -18,14 +20,19 @@ export default function SvgAnimation(props: Props) {
   const viewportHeight = useViewportHeight();
   const [show, setShow] = useState(false);
 
+  const elementPagePosition = useMemo(() => {
+    return position + (ref?.getBoundingClientRect()?.top ?? 0);
+  }, [ref]);
+
   useLayoutEffect(() => {
     if (ref) {
       const rect = ref?.getBoundingClientRect();
       if (rect != null) {
         const viewThreshold = 100;
-        const dist = Math.abs(rect.top + rect.height / 2 - viewportHeight / 2);
-        console.log("dist", dist);
-        const isVisible = dist < viewThreshold;
+        const distanceFromCenter = Math.abs(
+          rect.top + rect.height / 2 - viewportHeight / 2
+        );
+        const isVisible = distanceFromCenter < viewThreshold;
         if (isVisible) {
           setShow(true);
         }
@@ -40,9 +47,17 @@ export default function SvgAnimation(props: Props) {
         const groups: Array<SVGPathElement[]> = queryPathGroups(ref, "draw\\/");
         for (const group of groups) {
           let delay = 0;
+          let totalLength = group.reduce(
+            (acc, x) => acc + x.getTotalLength(),
+            0
+          );
+          let totalAnimationTime = Math.min(MAX_ANIMATION_TIME, totalLength / ANIMATION_SPEED);
+          console.log("totalLength", totalLength)
+          console.log("totalAnimationTime", totalAnimationTime)
           for (const maskElement of group) {
             const length = maskElement.getTotalLength();
-            const animationTime = length / ANIMATION_SPEED;
+            // const animationTime = length / ANIMATION_SPEED;
+            const animationTime = totalAnimationTime * (length / totalLength);
 
             animatePath(maskElement, {
               reverse: false,
@@ -76,11 +91,35 @@ export default function SvgAnimation(props: Props) {
     }
   }, [ref, show]);
 
-  return (
-    <div className={[s.root, show && "SHOW"].join(" ")} ref={setRef}>
-      {children}
-    </div>
-  );
+  const parallaxElements = useMemo(() => {
+    return ref
+      ? [...ref.querySelectorAll<SVGPathElement>(`g[id^=parallax]`)]
+      : [];
+  }, [ref]);
+
+  useLayoutEffect(() => {
+    if (ref && parallaxElements.length > 0) {
+      const rect = ref.getBoundingClientRect();
+      const top = rect.top;
+      const progress = Math.min(
+        1,
+        Math.max(0, (viewportHeight - top) / (viewportHeight + rect.height))
+      );
+      for (const parallaxElement of parallaxElements) {
+        if (parallaxElement.id.startsWith("parallax:vertical")) {
+          parallaxElement.style.transform = `translateY(${
+            (PARALLAX_SHIFT - PARALLAX_SHIFT * 2 * progress) * PARALLAX_SPEED
+          }px)`;
+        } else if (parallaxElement.id.startsWith("parallax:transparency")) {
+          const opacity =
+            progress < 0.3 ? 0 : Math.min(1, (progress - 0.3) * 10);
+          parallaxElement.style.opacity = `${opacity}`;
+        }
+      }
+    }
+  }, [ref, position, parallaxElements, elementPagePosition]);
+
+  return <div ref={setRef}>{children}</div>;
 }
 
 function queryPathGroups(
@@ -111,21 +150,20 @@ function animatePath(
     delay?: number;
   }
 ) {
-  const { reverse, delay = 0, show } = params;
+  const { reverse, delay = 0, show, animationTime } = params;
   const length = pathElement.getTotalLength();
   pathElement.style.strokeDasharray = `${length}`;
-  const animationSpeed = reverse ? REVERSE_ANIMATION_SPEED : ANIMATION_SPEED;
-  const animationTime = length / animationSpeed;
+  // const animationSpeed = reverse ? REVERSE_ANIMATION_SPEED : ANIMATION_SPEED;
+  // const animationTime = length / animationSpeed;
   pathElement.style.transitionDuration = show ? `${animationTime}ms` : "0ms";
+  pathElement.style.transitionDelay = show ? `${delay}ms` : "0ms";
   if (reverse) {
     if (show) {
       pathElement.style.strokeDashoffset = `-${length}`;
-      pathElement.style.transitionDelay = `${delay}ms`;
     }
   } else {
     if (show) {
       pathElement.style.strokeDashoffset = `0`;
-      pathElement.style.transitionDelay = `${delay}ms`;
     } else {
       pathElement.style.strokeDashoffset = `${length}`;
     }
