@@ -143,7 +143,7 @@ export default function Page() {
           <Space height={50} />
           <SideBySideBlock>
             <div>
-              <Header1>We saw it all … and started working</Header1>
+              <Header1>We saw it all …&nbsp;and started working</Header1>
               <Quote color="WHITE">
                 — This village is located at the&nbsp;intersection of several
                 roads in&nbsp;the&nbsp;middle of the&nbsp;wilderness, making it
@@ -186,7 +186,7 @@ export default function Page() {
               <Illustration5Svg />
             </SvgAnimation>
             <div>
-              <Header1>Gaining trust</Header1>
+              <Header1>Gaining&nbsp;trust</Header1>
               <FirstLine>
                 The journey to build the clinic was not an easy one.
               </FirstLine>
@@ -216,7 +216,7 @@ export default function Page() {
           <Space height={100} />
           <SideBySideBlock columnTemplate="660px auto">
             <div>
-              <Header1>Respecting the traditions</Header1>
+              <Header1>Respecting&nbsp;the traditions</Header1>
               <FirstLine>
                 To&nbsp;earn the&nbsp;trust and acceptance of
                 the&nbsp;villagers, Vika and&nbsp;Karina embarked on

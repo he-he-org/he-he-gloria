@@ -9,7 +9,7 @@ interface Props {
 const ANIMATION_SPEED = 0.2; // pixels per ms
 const MAX_ANIMATION_TIME = 7000;
 const REVERSE_ANIMATION_SPEED = ANIMATION_SPEED * 3; // pixels per ms
-const PARALLAX_SPEED = 0.1;
+const PARALLAX_SPEED = 0.3;
 const PARALLAX_SHIFT = 500;
 
 export default function SvgAnimation(props: Props) {
@@ -107,7 +107,7 @@ export default function SvgAnimation(props: Props) {
       for (const parallaxElement of parallaxElements) {
         if (parallaxElement.id.startsWith("parallax:vertical")) {
           parallaxElement.style.transform = `translateY(${
-            (PARALLAX_SHIFT - PARALLAX_SHIFT * 2 * progress) * PARALLAX_SPEED
+            (-PARALLAX_SHIFT + PARALLAX_SHIFT * progress) * PARALLAX_SPEED
           }px)`;
         } else if (parallaxElement.id.startsWith("parallax:transparency")) {
           const opacity =
