@@ -1,4 +1,4 @@
-@use "app/globals";
+@use "app/utils";
 
 .root {
   display: inline-flex;
@@ -15,8 +15,8 @@
   letter-spacing: -0.2px;
   transition-property: color, background-color;
   transition-duration: 300ms;
-  border: 2px solid globals.$colors-red;
-  color: globals.$colors-red;
+  border: 2px solid utils.$colors-red;
+  color: utils.$colors-red;
   background-color: transparent;
   min-height: 56px;
   text-decoration: none;
@@ -28,12 +28,12 @@
   }
 
   &:hover {
-    color: globals.$colors-black;
-    background-color: globals.$colors-red;
+    color: utils.$colors-black;
+    background-color: utils.$colors-red;
   }
 
   &:active {
     color: white;
-    background-color: globals.$colors-red-2;
+    background-color: utils.$colors-red-2;
   }
 }

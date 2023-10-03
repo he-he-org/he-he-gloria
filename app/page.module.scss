@@ -1,4 +1,4 @@
-@use "app/globals";
+@use "app/utils";
 
 .root {
   overflow: hidden;
@@ -22,21 +22,21 @@
 }
 
 .black {
-  background: globals.$colors-black;
+  background: utils.$colors-black;
   color: white;
   overflow: hidden;
 }
 
 .white {
   background: white;
-  color: globals.$colors-black;
+  color: utils.$colors-black;
   position: relative;
 }
 
 .dishAndGradient {
   position: absolute;
   top: -528px;
-  background: globals.$colors-black;
+  background: utils.$colors-black;
   left: 50%;
   transform: translateX(-50%);
   height: 1250px;

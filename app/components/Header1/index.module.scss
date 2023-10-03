@@ -1,8 +1,8 @@
-@use "app/globals";
+@use "app/utils";
 
 .root {
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: globals.$header-font;
+  font-family: utils.$header-font;
   font-size: 82px;
   margin: 54px 0;
   font-style: normal;
@@ -10,5 +10,5 @@
   line-height: 95%;
   letter-spacing: 0.5px;
 
-  @include globals.fix-text-margins();
+  @include utils.fix-text-margins();
 }

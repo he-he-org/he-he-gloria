@@ -1,4 +1,4 @@
-@use "app/globals";
+@use "app/utils";
 
 $title-height: 40px;
 $height: 600px;
@@ -24,7 +24,7 @@ $height: 600px;
   display: flex;
   height: 100%;
   left: 50%;
-  transition-duration: globals.$animation-duration;
+  transition-duration: utils.$animation-duration;
   transition-property: transform;
 }
 
@@ -50,7 +50,7 @@ $height: 600px;
 
   .image {
     height: $height;
-    transition-duration: globals.$animation-duration;
+    transition-duration: utils.$animation-duration;
     transition-property: transform;
   }
 
@@ -58,11 +58,11 @@ $height: 600px;
     width: 100%;
     height: $title-height;
     text-align: center;
-    color: globals.$colors-black;
+    color: utils.$colors-black;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    transition-duration: globals.$animation-duration;
+    transition-duration: utils.$animation-duration;
     transition-property: opacity;
   }
 }
@@ -76,7 +76,7 @@ $height: 600px;
     background: #999999;
     border: none;
     flex-shrink: 0;
-    transition-duration: globals.$animation-duration;
+    transition-duration: utils.$animation-duration;
     transition-property: transform, background;
     transform: scale(0.5);
     height: 12px;

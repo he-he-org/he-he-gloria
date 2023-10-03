@@ -1,4 +1,4 @@
-@use "app/globals";
+@use "app/utils";
 
 .root {
   display: flex;
@@ -37,7 +37,7 @@
 }
 
 .red {
-  color: globals.$colors-red;
+  color: utils.$colors-red;
 }
 
 .white {

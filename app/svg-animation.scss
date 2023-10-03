@@ -1,4 +1,4 @@
-@use "app/globals";
+@use "app/utils";
 @import "assets/metropolis/stylesheet.css";
 @import "assets/polite-type/stylesheet.css";
 
@@ -36,7 +36,7 @@ svg .caption_svg__mask {
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-fill-mode: backwards;
-  stroke: globals.$colors-black;
+  stroke: utils.$colors-black;
   stroke-width: 4px;
   stroke-linejoin: round;
   stroke-linecap: round;

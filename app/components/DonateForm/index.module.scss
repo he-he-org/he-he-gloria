@@ -1,4 +1,4 @@
-@use "app/globals";
+@use "app/utils";
 
 .root {
   display: flex;
@@ -19,7 +19,7 @@
 .header {
   display: flex;
   align-items: center;
-  color: globals.$colors-red;
+  color: utils.$colors-red;
   padding-left: 210px;
 }
 

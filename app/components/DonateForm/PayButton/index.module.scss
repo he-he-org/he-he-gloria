@@ -1,16 +1,16 @@
-@use "app/globals";
+@use "app/utils";
 
 .root {
   border-radius: 22px;
-  border: 2px solid globals.$colors-black;
+  border: 2px solid utils.$colors-black;
   background: transparent;
   padding: 12px 16px;
   font-size: 24px;
   font-weight: 300;
 
   &.isActive {
-    background: globals.$colors-red;
+    background: utils.$colors-red;
     color: white;
-    border-color: globals.$colors-red;
+    border-color: utils.$colors-red;
   }
 }
