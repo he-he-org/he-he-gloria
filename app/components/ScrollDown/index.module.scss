@@ -1,0 +1,12 @@
+@use "app/globals";
+
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  vertical-align: middle;
+  margin-right: 16px;
+  flex-shrink: 0;
+}

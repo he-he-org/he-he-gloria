@@ -31,6 +31,7 @@ import Space from "./components/Space";
 import { DONATE_FORM_ANCHOR, DonateForm } from "./components/DonateForm";
 import Map from "./components/Map";
 import SvgAnimation from "./components/animation/SvgAnimation";
+import ScrollDown from "./components/ScrollDown";
 
 export default function Page() {
   return (
@@ -50,6 +51,11 @@ export default function Page() {
                 Together, we have established 2 clinics in&nbsp;the&nbsp;remote
                 villages of&nbsp;Guatemala and&nbsp;Nicaragua.
               </Text>
+              <ScrollDown>
+                <b>
+                  <i>Scroll down to&nbsp;learn our story and...</i>
+                </b>
+              </ScrollDown>
               <div style={{ marginTop: 48 }}>
                 <DonateButton href={`#${DONATE_FORM_ANCHOR}`}>
                   Become our sponsor
@@ -406,8 +412,13 @@ export default function Page() {
                     is a&nbsp;fundamental right and&nbsp;hope flourishes.
                   </Text>
                   <Text>
-                    <b>Be part of&nbsp;our journey today!</b>
+                    <b>
+                      <i>Be part of&nbsp;our journey today!</i>
+                    </b>
                   </Text>
+                  <ScrollDown>
+                    Help us reach more people by&nbsp;sharing this story
+                  </ScrollDown>
                 </div>
               </SideBySideBlock>
             </div>
