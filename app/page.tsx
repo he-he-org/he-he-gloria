@@ -453,17 +453,17 @@ export default function Page() {
           { src: Photo01.src, title: "Señora waiting in line" },
           {
             src: Photo02.src,
-            title: "Hands down, the coolest way to pass time while queuing",
-          },
-          {
-            src: Photo03.src,
             title:
               "Our doctors seem to have found something surprising. Is it twins?",
           },
           {
-            src: Photo04.src,
+            src: Photo03.src,
             title:
               "Peace of mind for the mother - and a sweet treat for the kid",
+          },
+          {
+            src: Photo04.src,
+            title: "Hands down, the coolest way to pass time while queuing",
           },
           {
             src: Photo05.src,

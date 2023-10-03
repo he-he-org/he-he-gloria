@@ -1,21 +1,21 @@
 @use "app/utils";
 
-$title-height: 40px;
+$title-height: 80px;
 $height: 600px;
 
 .root {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: $title-height;
   align-items: center;
+  margin-top: 50px;
 }
 
 .imagesContainer {
   display: flex;
-  height: $height + $title-height;
+  height: $height;
   position: relative;
   width: 100vw;
-  overflow: hidden;
 }
 
 .images {
@@ -41,7 +41,6 @@ $height: 600px;
     .image {
       cursor: pointer;
       transform: scale(0.9);
-      //filter: grayscale(100%);
     }
     .imageTitle {
       opacity: 0;
@@ -55,15 +54,20 @@ $height: 600px;
   }
 
   .imageTitle {
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateY(100%) translateX(-50%);
     height: $title-height;
     text-align: center;
     color: utils.$colors-black;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     transition-duration: utils.$animation-duration;
     transition-property: opacity;
+    width: 100vw;
+    padding: 20px;
   }
 }
 
