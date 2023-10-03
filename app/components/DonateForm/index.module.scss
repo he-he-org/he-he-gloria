@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 50px;
   position: relative;
-  padding-left: 100px;
+  padding-left: 60px;
   padding-top: 123px;
   padding-bottom: 120px;
 }
@@ -13,20 +13,18 @@
 .logo {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100px;
 }
 
 .header {
   display: flex;
   align-items: center;
   color: utils.$colors-red;
-  padding-left: 210px;
+  padding-left: 140px;
 }
 
 .body {
   display: flex;
+  gap: 40px;
 }
 
-.illustration {
-  margin: 0 60px;
-}

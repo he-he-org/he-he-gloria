@@ -34,7 +34,7 @@ export default function Numbers() {
       // setStarted(true)
       setShowVolunteersCount(true);
       await sleep(200);
-      setVolunteersCount(149);
+      setVolunteersCount(145);
       await sleep(DIGITS_ANIMATION_TIME - 200);
       setShowVolunteersTitle(true);
       // await sleep(ANIMATION_TIME);

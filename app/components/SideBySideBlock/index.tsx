@@ -4,12 +4,16 @@ import React from "react";
 interface Props {
   children: React.ReactNode;
   columnTemplate?: string;
+  gap?: number;
 }
 
 export default function SideBySideBlock(props: Props) {
-  const { children, columnTemplate } = props;
+  const { children, columnTemplate, gap } = props;
   return (
-    <div className={s.root} style={{ gridTemplateColumns: columnTemplate }}>
+    <div
+      className={s.root}
+      style={{ gridTemplateColumns: columnTemplate, gap: gap }}
+    >
       {children}
     </div>
   );

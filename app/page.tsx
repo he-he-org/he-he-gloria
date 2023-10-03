@@ -96,7 +96,7 @@ export default function Page() {
             </div>
           </SideBySideBlock>
           <Space height={50} />
-          <SideBySideBlock>
+          <SideBySideBlock columnTemplate="365px auto">
             <div>
               <FirstLine>Donna Gloria works as a&nbsp;cook,</FirstLine>
               <Text>
@@ -124,7 +124,7 @@ export default function Page() {
               <Illustration2Svg />
             </SvgAnimation>
           </SideBySideBlock>
-          <Space height={50} />
+          <Space height={12} />
           <SideBySideBlock>
             <SvgAnimation>
               <Illustration3Svg />
@@ -146,10 +146,14 @@ export default function Page() {
               </Text>
             </div>
           </SideBySideBlock>
-          <Space height={50} />
-          <SideBySideBlock>
+          <Space height={100} />
+          <SideBySideBlock columnTemplate="760px auto">
             <div>
-              <Header1>We saw it all …&nbsp;and started working</Header1>
+              <Header1 style={{ fontSize: 80 }}>
+                We saw it all…
+                <br />
+                and started working
+              </Header1>
               <Quote color="WHITE">
                 — This village is located at the&nbsp;intersection of several
                 roads in&nbsp;the&nbsp;middle of the&nbsp;wilderness, making it
@@ -183,7 +187,12 @@ export default function Page() {
               </SideBySideBlock>
             </div>
             <SvgAnimation>
-              <Illustration4Svg />
+              <Illustration4Svg
+                style={{
+                  marginLeft: "-145px",
+                  marginTop: "-105px",
+                }}
+              />
             </SvgAnimation>
           </SideBySideBlock>
           <Space height={50} />
@@ -192,7 +201,7 @@ export default function Page() {
               <Illustration5Svg />
             </SvgAnimation>
             <div>
-              <Header1>Gaining&nbsp;trust</Header1>
+              <Header1>Gaining trust</Header1>
               <FirstLine>
                 The journey to build the clinic was not an easy one.
               </FirstLine>
@@ -215,14 +224,14 @@ export default function Page() {
               </DonateButton>
             </div>
           </SideBySideBlock>
-          <Space height={100} />
+          <Space height={20} />
           <SvgAnimation>
             <Illustration6Svg />
           </SvgAnimation>
           <Space height={100} />
-          <SideBySideBlock columnTemplate="660px auto">
+          <SideBySideBlock columnTemplate="720px auto">
             <div>
-              <Header1>Respecting&nbsp;the traditions</Header1>
+              <Header1>Respecting the&nbsp;traditions</Header1>
               <FirstLine>
                 To&nbsp;earn the&nbsp;trust and acceptance of
                 the&nbsp;villagers, Vika and&nbsp;Karina embarked on
@@ -259,7 +268,12 @@ export default function Page() {
               </SideBySideBlock>
             </div>
             <SvgAnimation>
-              <Illustration7Svg />
+              <Illustration7Svg
+                style={{
+                  marginLeft: "-150px",
+                  marginTop: "-50px",
+                }}
+              />
             </SvgAnimation>
           </SideBySideBlock>
         </div>
@@ -274,12 +288,12 @@ export default function Page() {
           <BgGradientSvg className={[s.bgGradient, s.bottom].join(" ")} />
         </div>
         <div className={s.content}>
-          <SideBySideBlock>
+          <SideBySideBlock gap={20}>
             <SvgAnimation>
               <Illustration8Svg />
             </SvgAnimation>
             <div>
-              <Header1>The clinic is open</Header1>
+              <Header1 style={{ color: "white" }}>The clinic is open</Header1>
               <FirstLine>
                 As the&nbsp;clinic's doors opened, a&nbsp;world
                 of&nbsp;possibilities unfolded before the&nbsp;village
@@ -340,9 +354,11 @@ export default function Page() {
             </div>
           </SideBySideBlock>
           <Space height={50} />
-          <SideBySideBlock>
+          <SideBySideBlock gap={20}>
             <div>
-              <Header1>Life transformed by Health & Help</Header1>
+              <Header1 style={{ fontSize: 80 }}>
+                Life transformed by Health & Help
+              </Header1>
               <FirstLine>
                 For many villagers, the clinic became their guardian of
                 well-being, empowering them to&nbsp;reclaim their lives.
@@ -363,7 +379,7 @@ export default function Page() {
               <Illustration10Svg />
             </SvgAnimation>
           </SideBySideBlock>
-          <SideBySideBlock columnTemplate="5fr 3fr">
+          <SideBySideBlock columnTemplate="5fr 3fr" gap={0}>
             <SvgAnimation>
               <Illustration11Svg style={{ marginLeft: "auto" }} />
             </SvgAnimation>
@@ -383,13 +399,15 @@ export default function Page() {
             </div>
           </SideBySideBlock>
           <Space height={50} />
-          <SideBySideBlock>
+          <SideBySideBlock gap={0}>
             <div>
               <Header1>Take action and follow the journey</Header1>
               <Quote color="BLACK">
-                — If it hadn't been for&nbsp;you, I don’t know what we
-                would&nbsp;do. Before you came, there were no&nbsp;doctors here,
-                Domingo Sanchez
+                <span>
+                  — If it hadn't been for&nbsp;you, I don’t know what we
+                  would&nbsp;do. Before you came, there were no&nbsp;doctors
+                  here, <b>Domingo Sanchez</b>
+                </span>
               </Quote>
               <SideBySideBlock>
                 <div>
@@ -423,7 +441,7 @@ export default function Page() {
               </SideBySideBlock>
             </div>
             <SvgAnimation>
-              <Illustration12Svg />
+              <Illustration12Svg style={{ marginTop: "30px" }} />
             </SvgAnimation>
           </SideBySideBlock>
           <DonateForm />
