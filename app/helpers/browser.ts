@@ -13,6 +13,7 @@ export function useIsMobile() {
       setValue((window?.innerWidth ?? 0) < 1280);
     };
     window?.addEventListener(`resize`, handler);
+    handler();
     return () => {
       window?.removeEventListener("resize", handler);
     };

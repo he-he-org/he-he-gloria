@@ -22,7 +22,6 @@ export default function Map() {
           const animationTime = 500;
           if (el.id === "titles") {
             const groups = queryPathGroups(el, "draw\\:reverse");
-            console.log("groups", groups);
           } else {
             animateOpacity(el, {
               show,
@@ -44,7 +43,10 @@ export default function Map() {
 
   return (
     <div ref={setRef} className={s.root}>
-      <Illustration1Svg className={s.image} />
+      <Illustration1Svg
+          className={s.image}
+
+      />
     </div>
   );
 }

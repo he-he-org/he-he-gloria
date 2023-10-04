@@ -8,5 +8,12 @@
   position: absolute;
   top: -60px;
   right: -50px;
+  width: 727px;
+  height: 727px;
 }
 
+@media (max-width: utils.$mobile-width) {
+  .root {
+    display: none;
+  }
+}

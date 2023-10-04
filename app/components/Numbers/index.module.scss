@@ -32,6 +32,12 @@
   color: white;
 }
 
+@media (max-width: utils.$mobile-width) {
+  .root {
+    display: none;
+  }
+}
+
 .value {
   font-size: 108px;
   font-style: normal;

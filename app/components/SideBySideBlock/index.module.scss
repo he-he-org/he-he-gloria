@@ -2,8 +2,19 @@
 
 .root {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   gap: 80px;
   margin: 32px 0;
   position: relative;
+}
+
+@media (max-width: utils.$mobile-width) {
+  .root {
+    display: flex;
+    flex-direction: column;
+
+    &.mobileReverse {
+      flex-direction: column-reverse;
+    }
+  }
 }

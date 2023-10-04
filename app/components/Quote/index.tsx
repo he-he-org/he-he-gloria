@@ -11,7 +11,7 @@ export default function Quote(props: Props) {
   const { color } = props;
   return (
     <blockquote className={[s.root, s[`color-${color}`]].join(" ")}>
-      <MarksSvg />
+      <MarksSvg className={s.quoteIcon} />
       {props.children}
     </blockquote>
   );

@@ -68,7 +68,9 @@ export default function Page() {
           <Space height={150} />
           <SideBySideBlock>
             <SvgAnimation>
-              <DonnaGloriaSvg />
+              <DonnaGloriaSvg
+                className={[s.illustration, s.gloria].join(" ")}
+              />
             </SvgAnimation>
             <div>
               <Header1>This is Gloria</Header1>
@@ -96,7 +98,7 @@ export default function Page() {
             </div>
           </SideBySideBlock>
           <Space height={50} />
-          <SideBySideBlock columnTemplate="365px auto">
+          <SideBySideBlock columnTemplate="auto 782px" gap={30}>
             <div>
               <FirstLine>Donna Gloria works as a&nbsp;cook,</FirstLine>
               <Text>
@@ -121,11 +123,13 @@ export default function Page() {
               </Text>
             </div>
             <SvgAnimation>
-              <Illustration2Svg />
+              <Illustration2Svg
+                className={[s.illustration, s.illustration2].join(" ")}
+              />
             </SvgAnimation>
           </SideBySideBlock>
           <Space height={12} />
-          <SideBySideBlock>
+          <SideBySideBlock columnTemplate="713px auto" mobileReverse={true}>
             <SvgAnimation>
               <Illustration3Svg />
             </SvgAnimation>
@@ -149,7 +153,7 @@ export default function Page() {
           <Space height={100} />
           <SideBySideBlock columnTemplate="760px auto">
             <div>
-              <Header1 style={{ fontSize: 80 }}>
+              <Header1>
                 We saw it all…
                 <br />
                 and started working
@@ -188,15 +192,12 @@ export default function Page() {
             </div>
             <SvgAnimation>
               <Illustration4Svg
-                style={{
-                  marginLeft: "-145px",
-                  marginTop: "-105px",
-                }}
+                className={[s.illustration, s.illustration4].join(" ")}
               />
             </SvgAnimation>
           </SideBySideBlock>
           <Space height={50} />
-          <SideBySideBlock>
+          <SideBySideBlock columnTemplate="765px auto" mobileReverse gap={40}>
             <SvgAnimation>
               <Illustration5Svg />
             </SvgAnimation>
@@ -226,7 +227,9 @@ export default function Page() {
           </SideBySideBlock>
           <Space height={20} />
           <SvgAnimation>
-            <Illustration6Svg />
+            <Illustration6Svg
+              className={[s.illustration, s.illustration6].join(" ")}
+            />
           </SvgAnimation>
           <Space height={100} />
           <SideBySideBlock columnTemplate="720px auto">
@@ -269,10 +272,7 @@ export default function Page() {
             </div>
             <SvgAnimation>
               <Illustration7Svg
-                style={{
-                  marginLeft: "-150px",
-                  marginTop: "-50px",
-                }}
+                className={[s.illustration, s.illustration7].join(" ")}
               />
             </SvgAnimation>
           </SideBySideBlock>
@@ -288,7 +288,7 @@ export default function Page() {
           <BgGradientSvg className={[s.bgGradient, s.bottom].join(" ")} />
         </div>
         <div className={s.content}>
-          <SideBySideBlock gap={20}>
+          <SideBySideBlock gap={20} columnTemplate="760px auto">
             <SvgAnimation>
               <Illustration8Svg />
             </SvgAnimation>
@@ -312,7 +312,7 @@ export default function Page() {
           <FirstLine>
             Despite Donna Gloria’s own struggles with asthma,
           </FirstLine>
-          <SideBySideBlock columnTemplate="auto auto auto">
+          <SideBySideBlock columnTemplate="auto 395px auto">
             <div>
               <Text>
                 she found solace in the&nbsp;care provided by&nbsp;dedicated
@@ -332,7 +332,7 @@ export default function Page() {
               </Text>
             </div>
             <SvgAnimation>
-              <Illustration9Svg />
+              <Illustration9Svg className={s.illustration} />
             </SvgAnimation>
             <div>
               <Text>
@@ -354,11 +354,9 @@ export default function Page() {
             </div>
           </SideBySideBlock>
           <Space height={50} />
-          <SideBySideBlock gap={20}>
+          <SideBySideBlock gap={20} columnTemplate="auto 484px">
             <div>
-              <Header1 style={{ fontSize: 80 }}>
-                Life transformed by Health & Help
-              </Header1>
+              <Header1 small>Life transformed by Health & Help</Header1>
               <FirstLine>
                 For many villagers, the clinic became their guardian of
                 well-being, empowering them to&nbsp;reclaim their lives.
@@ -379,7 +377,7 @@ export default function Page() {
               <Illustration10Svg />
             </SvgAnimation>
           </SideBySideBlock>
-          <SideBySideBlock columnTemplate="5fr 3fr" gap={0}>
+          <SideBySideBlock columnTemplate="680 auto" mobileReverse>
             <SvgAnimation>
               <Illustration11Svg style={{ marginLeft: "auto" }} />
             </SvgAnimation>
@@ -399,7 +397,7 @@ export default function Page() {
             </div>
           </SideBySideBlock>
           <Space height={50} />
-          <SideBySideBlock gap={0}>
+          <SideBySideBlock gap={0} columnTemplate="auto 440px">
             <div>
               <Header1>Take action and follow the journey</Header1>
               <Quote color="BLACK">
@@ -444,7 +442,7 @@ export default function Page() {
               <Illustration12Svg style={{ marginTop: "30px" }} />
             </SvgAnimation>
           </SideBySideBlock>
-          <DonateForm />
+          {/*<DonateForm />*/}
           <Header1>Health & Help in real life</Header1>
         </div>
       </div>
