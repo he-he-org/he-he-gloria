@@ -1,6 +1,6 @@
 "use client";
 import React, { useLayoutEffect, useMemo, useState } from "react";
-import { useScrollPosition, useViewportHeight } from "../../../helpers/browser";
+import {useIsMobile, useScrollPosition, useViewportHeight} from "../../../helpers/browser";
 
 interface Props {
   children: React.ReactNode;
@@ -20,6 +20,7 @@ export default function SvgAnimation(props: Props) {
   const viewportHeight = useViewportHeight();
   const [show, setShow] = useState(false);
 
+  const isMobile = useIsMobile();
   const elementPagePosition = useMemo(() => {
     return position + (ref?.getBoundingClientRect()?.top ?? 0);
   }, [ref]);
@@ -80,10 +81,19 @@ export default function SvgAnimation(props: Props) {
           for (const maskElement of group) {
             const length = maskElement.getTotalLength();
             const animationTime = length / REVERSE_ANIMATION_SPEED;
-            animateReverseDraw(maskElement, {
-              animationTime,
-              show,
-            });
+            // temporary disable text animation on mobile because of ios bug
+            if (isMobile) {
+              animateReverseDraw(maskElement, {
+                animationTime: 0,
+                show: true,
+                delay: 0,
+              });
+            } else {
+              animateReverseDraw(maskElement, {
+                animationTime,
+                show,
+              });
+            }
           }
         }
       }
