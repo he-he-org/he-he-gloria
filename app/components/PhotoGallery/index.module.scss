@@ -46,29 +46,29 @@ $height: 600px;
       opacity: 0;
     }
   }
+}
 
-  .image {
-    height: $height;
-    transition-duration: utils.$animation-duration;
-    transition-property: transform;
-  }
+.image {
+  height: $height;
+  transition-duration: utils.$animation-duration;
+  transition-property: transform;
+}
 
-  .imageTitle {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateY(100%) translateX(-50%);
-    height: $title-height;
-    text-align: center;
-    color: utils.$colors-black;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    transition-duration: utils.$animation-duration;
-    transition-property: opacity;
-    width: 100vw;
-    padding: 20px;
-  }
+.imageTitle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateY(100%) translateX(-50%);
+  height: $title-height;
+  text-align: center;
+  color: utils.$colors-black;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition-duration: utils.$animation-duration;
+  transition-property: opacity;
+  width: 100vw;
+  padding: 20px;
 }
 
 .controls {
@@ -83,12 +83,50 @@ $height: 600px;
     transition-duration: utils.$animation-duration;
     transition-property: transform, background;
     transform: scale(0.5);
-    height: 12px;
-    width: 12px;
+    height: 24px;
+    width: 24px;
 
     &.isActive {
       transform: none;
       background: #d35457;
     }
+  }
+}
+
+@media (max-width: utils.$mobile-width) {
+  .imagesContainer {
+    height: unset;
+
+    .imageContainer {
+      &:not(.isActive) {
+        .image {
+          transform: unset;
+        }
+        .imageTitle {
+          opacity: unset;
+        }
+      }
+    }
+  }
+
+  .images {
+    position: unset;
+    flex-direction: column;
+  }
+
+  .image {
+    height: unset;
+    width: 100%;
+  }
+
+  .imageTitle {
+    position: unset;
+    height: unset;
+    transform: unset;
+    width: unset;
+  }
+
+  .controls {
+    display: none;
   }
 }

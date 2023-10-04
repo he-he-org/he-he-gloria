@@ -1,6 +1,7 @@
 "use client";
 import s from "./index.module.scss";
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "../../helpers/browser";
 
 interface ImageInfo {
   src: string;
@@ -19,6 +20,7 @@ export default function PhotoGallery(props: Props) {
   const [offset, setOffset] = useState(0);
   const [offsetDif, setOffsetDif] = useState(0);
 
+  const isMobile = useIsMobile();
   const imagesRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (imagesRef.current) {
@@ -49,21 +51,15 @@ export default function PhotoGallery(props: Props) {
         <div
           ref={imagesRef}
           className={s.images}
-          style={{
-            transform: `translateX(-${offset}px)`,
-            transitionDuration: `${animationSpeed}ms`,
-          }}
+          style={
+            isMobile
+              ? undefined
+              : {
+                  transform: `translateX(-${offset}px)`,
+                  transitionDuration: `${animationSpeed}ms`,
+                }
+          }
         >
-          {/*{images.map((image, i) => (*/}
-          {/*  <Img*/}
-          {/*    isFake={true}*/}
-          {/*    key={`${image.src}-fake-before`}*/}
-          {/*    image={image}*/}
-          {/*    onClick={() => {*/}
-          {/*      setActive(i);*/}
-          {/*    }}*/}
-          {/*  />*/}
-          {/*))}*/}
           {images.map((image, i) => (
             <Img
               key={image.src}
@@ -74,16 +70,6 @@ export default function PhotoGallery(props: Props) {
               }}
             />
           ))}
-          {/*{images.map((image, i) => (*/}
-          {/*  <Img*/}
-          {/*    isFake={true}*/}
-          {/*    key={`${image.src}-fake-after`}*/}
-          {/*    image={image}*/}
-          {/*    onClick={() => {*/}
-          {/*      setActive(i);*/}
-          {/*    }}*/}
-          {/*  />*/}
-          {/*))}*/}
         </div>
       </div>
       <div className={s.controls}>
