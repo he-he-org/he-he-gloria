@@ -1,0 +1,21 @@
+@use "app/utils";
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+
+  &,
+  &:active,
+  &:visited {
+    color: utils.$colors-gray;
+  }
+  &:hover {
+    color: utils.$colors-red;
+  }
+}
+

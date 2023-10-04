@@ -1,0 +1,24 @@
+@use "app/utils";
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: utils.$colors-gray;
+
+  &:hover {
+    color: utils.$colors-red;
+  }
+
+  > svg {
+    width: 180px;
+  }
+}
+
+@media (max-width: utils.$mobile-width) {
+  .logo {
+    > svg {
+      width: 140px;
+    }
+  }
+}
+
