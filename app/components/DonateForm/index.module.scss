@@ -14,6 +14,7 @@
   position: absolute;
   top: 0;
   left: -100px;
+  width: 332px;
 }
 
 .header {
@@ -26,5 +27,21 @@
 .body {
   display: flex;
   gap: 40px;
+}
+
+
+@media (max-width: utils.$mobile-width) {
+  .header {
+    padding-left: 0;
+  }
+  .body {
+    flex-direction: column-reverse;
+  }
+  .root {
+    padding: 0;
+  }
+  .logo {
+    display: none;
+  }
 }
 

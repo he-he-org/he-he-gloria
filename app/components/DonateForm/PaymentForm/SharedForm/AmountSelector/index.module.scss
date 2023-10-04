@@ -21,3 +21,10 @@
     border-color: utils.$colors-red;
   }
 }
+
+@media (max-width: utils.$mobile-width) {
+  .root {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+

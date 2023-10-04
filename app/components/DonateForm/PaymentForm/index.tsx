@@ -39,7 +39,7 @@ export default function PaymentForm() {
           ].join(" ")}
           onClick={handleSwitchSubscription}
         >
-          Donate once
+          Donate
         </div>
         <div
           className={[
@@ -48,7 +48,7 @@ export default function PaymentForm() {
           ].join(" ")}
           onClick={handleSwitchSubscription}
         >
-          Donate monthly
+          Subscribe
         </div>
       </div>
       <div className={s.body}>

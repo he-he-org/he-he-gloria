@@ -67,3 +67,18 @@ $border: 2px solid utils.$colors-black;
   font-weight: 300;
   margin-bottom: 20px;
 }
+
+
+@media (max-width: utils.$mobile-width) {
+  .body {
+    flex-direction: column;
+    align-items: stretch;
+    width: unset;
+    padding: 24px;
+  }
+  .tab {
+    min-width: unset;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

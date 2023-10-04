@@ -1,0 +1,52 @@
+@use "app/utils";
+
+.root {
+  background: #252525;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+  max-width: 1280px;
+  padding: 0 utils.$global-padding;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  > svg {
+    width: 180px;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: #dfdfdf;
+}
+
+@media (max-width: utils.$mobile-width) {
+  .logo {
+    > svg {
+      width: 140px;
+    }
+  }
+
+  .content {
+    padding: 0 utils.$mobile-global-padding;
+  }
+}
+

@@ -4,7 +4,6 @@ import SideBySideBlock from "./components/SideBySideBlock";
 import Text from "./components/Text";
 import s from "./page.module.scss";
 import DonnaGloriaSvg from "./assets/donna_gloria.svg";
-import Illustration1Svg from "./assets/illustration_1.svg";
 import Illustration2Svg from "./assets/illustration_2.svg";
 import Illustration3Svg from "./assets/illustration_3.svg";
 import Illustration4Svg from "./assets/illustration_4.svg";
@@ -30,12 +29,15 @@ import Quote from "./components/Quote";
 import Space from "./components/Space";
 import { DONATE_FORM_ANCHOR, DonateForm } from "./components/DonateForm";
 import Map from "./components/Map";
+import Header from "./components/Header";
 import SvgAnimation from "./components/animation/SvgAnimation";
 import ScrollDown from "./components/ScrollDown";
+import React from "react";
 
 export default function Page() {
   return (
     <div className={s.root}>
+      <Header />
       <div className={s.black}>
         <div className={s.content}>
           <SideBySideBlock columnTemplate="560px auto">
@@ -277,8 +279,6 @@ export default function Page() {
             </SvgAnimation>
           </SideBySideBlock>
         </div>
-        {/*<BgGradientSvg className={[s.bgGradient, s.top].join(' ')} />*/}
-        {/*<PaymentForm />*/}
       </div>
       <div className={s.white}>
         <div className={s.dishAndGradient}>
@@ -442,7 +442,7 @@ export default function Page() {
               <Illustration12Svg style={{ marginTop: "30px" }} />
             </SvgAnimation>
           </SideBySideBlock>
-          {/*<DonateForm />*/}
+          <DonateForm />
           <Header1>Health & Help in real life</Header1>
         </div>
       </div>
