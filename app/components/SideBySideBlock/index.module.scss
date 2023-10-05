@@ -12,6 +12,11 @@
   .root {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+
+    &:not(:first-child) {
+      margin-top: 64px;
+    }
 
     &.mobileReverse {
       flex-direction: column-reverse;
