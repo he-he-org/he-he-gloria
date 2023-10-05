@@ -98,10 +98,38 @@
     &.gloria {
     }
 
+    &.illustration5 {
+      min-width: 375px;
+    }
+
+    &.illustration6 {
+      min-width: 375px;
+    }
+
+    &.illustration8 {
+      min-width: 450px;
+    }
+
+    &.illustration10 {
+      min-width: 450px;
+    }
+
+    &.illustration11 {
+      min-width: 350px;
+    }
+
+    &.illustration12 {
+      min-width: 350px;
+    }
+
     &.illustration4,
     &.illustration7 {
       margin: 0;
     }
+  }
+
+  .bgGradient {
+    top: 288px;
   }
 
   .content {

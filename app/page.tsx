@@ -292,9 +292,9 @@ export default function Page() {
             <BgGradientSvg className={[s.bgGradient, s.bottom].join(" ")} />
           </div>
           <div className={s.content}>
-            <SideBySideBlock gap={20} columnTemplate="760px auto">
+            <SideBySideBlock gap={20} columnTemplate="760px auto" mobileReverse>
               <SvgAnimation>
-                <Illustration8Svg className={s.illustration} />
+                <Illustration8Svg className={[s.illustration, s.illustration8].join(' ')} />
               </SvgAnimation>
               <div>
                 <Header1 style={{ color: "white" }}>The clinic is open</Header1>
@@ -381,12 +381,12 @@ export default function Page() {
                 </Text>
               </div>
               <SvgAnimation>
-                <Illustration10Svg className={s.illustration} />
+                <Illustration10Svg className={[s.illustration,s.illustration10].join(' ')} />
               </SvgAnimation>
             </SideBySideBlock>
             <SideBySideBlock columnTemplate="680 auto" mobileReverse>
               <SvgAnimation>
-                <Illustration11Svg className={s.illustration} style={{ marginLeft: "auto" }} />
+                <Illustration11Svg className={[s.illustration, s.illustration11].join(' ')} style={{ marginLeft: "auto" }} />
               </SvgAnimation>
               <div>
                 <FirstLine>Other times, she seeks care</FirstLine>
@@ -447,7 +447,7 @@ export default function Page() {
                 </SideBySideBlock>
               </div>
               <SvgAnimation>
-                <Illustration12Svg className={s.illustration} style={{ marginTop: "30px" }} />
+                <Illustration12Svg className={[s.illustration, s.illustration12]} style={{ marginTop: "30px" }} />
               </SvgAnimation>
             </SideBySideBlock>
             <DonateForm />
