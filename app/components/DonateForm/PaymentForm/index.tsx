@@ -70,12 +70,14 @@ export default function PaymentForm() {
         {/*    Crypto*/}
         {/*  </button>*/}
         {/*</div>*/}
-        <div>
+        <div className={s.buttons}>
           <div className={s.description}>{sharedPaymentInformation.product?.description}</div>
-          {method === "stripe" && <Stripe shared={sharedPaymentInformation} />}
-          {method === "venmno" && <Venmno />}
-          {method === "payPal" && <PayPal />}
-          {method === "crypto" && <Crypto />}
+          <Stripe shared={sharedPaymentInformation} />
+          <PayPal shared={sharedPaymentInformation}  />
+
+          {/*{method === "venmno" && <Venmno />}*/}
+          {/*{method === "payPal" && <PayPal />}*/}
+          {/*{method === "crypto" && <Crypto />}*/}
         </div>
       </div>
     </div>

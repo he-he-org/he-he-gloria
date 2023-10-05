@@ -3,23 +3,22 @@ import { EnvSettings } from "../../../../../shared/env";
 import { SharedPaymentInformation } from "../types";
 import { useCallback } from "react";
 import { PaymentRequest } from "../../../../../shared/payment";
-import DonateButton from "../../../DonateButton";
-import * as t from "io-ts";
+import s from "./index.module.scss";
 
 const ENV =
   process.env.NODE_ENV === "development" ? "development" : "production";
 
 const settings: EnvSettings = envSettings[ENV];
 
-export default function Stripe(props: { shared: SharedPaymentInformation }) {
+type Props = { shared: SharedPaymentInformation };
+export default function Stripe(props: Props) {
   const { shared } = props;
 
   const handleSubmit = useCallback(async () => {
     const request: PaymentRequest = {
       paymentMethod: "stripe",
-      productId: shared.product?.productId ?? "",
       params: {
-        lang: "en", // todo: use env
+        productId: shared.product?.productId ?? "",
         mode: shared.subscription ? "subscription" : "payment",
         amount: ((shared.amount ?? 0) * 100).toFixed(0),
       },
@@ -38,8 +37,12 @@ export default function Stripe(props: { shared: SharedPaymentInformation }) {
   }, [shared]);
 
   return (
-    <DonateButton isDisabled={shared.product == null} onClick={handleSubmit}>
-      Donate
-    </DonateButton>
+    <button
+      disabled={shared.product == null}
+      onClick={handleSubmit}
+      className={s.button}
+    >
+      Stripe
+    </button>
   );
 }
