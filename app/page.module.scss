@@ -90,6 +90,13 @@
   .illustration {
     max-width: 100%;
     height: auto;
+    min-width: 400px;
+    position: relative;
+    left: calc(50vw - #{utils.$mobile-global-padding});
+    transform: translateX(-50%);
+
+    &.gloria {
+    }
 
     &.illustration4,
     &.illustration7 {
@@ -99,5 +106,7 @@
 
   .content {
     padding: 16px;
+    max-width: 100vw;
+    overflow: hidden;
   }
 }

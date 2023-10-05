@@ -136,7 +136,7 @@ export default function Page() {
             <Space height={12} />
             <SideBySideBlock columnTemplate="713px auto" mobileReverse={true}>
               <SvgAnimation>
-                <Illustration3Svg />
+                <Illustration3Svg className={s.illustration} />
               </SvgAnimation>
               <div>
                 <FirstLine>
@@ -205,7 +205,7 @@ export default function Page() {
             </SideBySideBlock>
             <SideBySideBlock columnTemplate="765px auto" mobileReverse gap={40}>
               <SvgAnimation>
-                <Illustration5Svg />
+                <Illustration5Svg className={[s.illustration, s.illustration5].join(" ")} />
               </SvgAnimation>
               <div>
                 <Header1>Gaining trust</Header1>
@@ -294,7 +294,7 @@ export default function Page() {
           <div className={s.content}>
             <SideBySideBlock gap={20} columnTemplate="760px auto">
               <SvgAnimation>
-                <Illustration8Svg />
+                <Illustration8Svg className={s.illustration} />
               </SvgAnimation>
               <div>
                 <Header1 style={{ color: "white" }}>The clinic is open</Header1>
@@ -381,12 +381,12 @@ export default function Page() {
                 </Text>
               </div>
               <SvgAnimation>
-                <Illustration10Svg />
+                <Illustration10Svg className={s.illustration} />
               </SvgAnimation>
             </SideBySideBlock>
             <SideBySideBlock columnTemplate="680 auto" mobileReverse>
               <SvgAnimation>
-                <Illustration11Svg style={{ marginLeft: "auto" }} />
+                <Illustration11Svg className={s.illustration} style={{ marginLeft: "auto" }} />
               </SvgAnimation>
               <div>
                 <FirstLine>Other times, she seeks care</FirstLine>
@@ -447,7 +447,7 @@ export default function Page() {
                 </SideBySideBlock>
               </div>
               <SvgAnimation>
-                <Illustration12Svg style={{ marginTop: "30px" }} />
+                <Illustration12Svg className={s.illustration} style={{ marginTop: "30px" }} />
               </SvgAnimation>
             </SideBySideBlock>
             <DonateForm />
