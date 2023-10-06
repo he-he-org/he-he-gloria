@@ -15,12 +15,9 @@ export default function DonateButton(props: Props) {
 
   if (href != null) {
     return (
-      <Link
-        className={className}
-        href={href}
-      >
+      <a className={className} href={href}>
         {props.children}
-      </Link>
+      </a>
     );
   }
 
