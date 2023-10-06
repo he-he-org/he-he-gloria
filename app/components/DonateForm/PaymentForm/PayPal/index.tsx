@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import {
-  PaymentRequest,
   PaymentResponse,
   PaypalPaymentRequest,
 } from "../../../../../shared/payment";
@@ -24,6 +23,7 @@ export default function PayPal(props: Props) {
     clientId: PAYPAL_CLIENT_ID,
     "enable-funding": "paypal",
     "data-sdk-integration-source": "integrationbuilder_sc",
+    vault: shared.subscription,
   };
 
   const [message, setMessage] = useState("");
@@ -37,40 +37,82 @@ export default function PayPal(props: Props) {
             // color: fundingSource == paypal.FUNDING.PAYLATER ? "gold" : "",
             layout: "vertical", //default value. Can be changed to horizontal
           }}
-          createOrder={async () => {
-            try {
-              const request: PaypalPaymentRequest = {
-                paymentMethod: "paypal",
-                params: {
-                  step: {
-                    step: "create_order",
-                    mode: shared.subscription ? "subscription" : "payment",
-                    amount: ((shared.amount ?? 0) * 100).toFixed(0),
-                  },
-                },
-              };
-              const serverResponse = await fetch("/api/payment", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(request),
-              });
-              const responseJson =
-                (await serverResponse.json()) as PaymentResponse;
+          createSubscription={
+            shared.subscription
+              ? async () => {
+                  try {
+                    const request: PaypalPaymentRequest = {
+                      paymentMethod: "paypal",
+                      params: {
+                        step: {
+                          step: "create_order",
+                          mode: "subscription",
+                          amount: ((shared.amount ?? 0) * 100).toFixed(0),
+                        },
+                      },
+                    };
+                    const serverResponse = await fetch("/api/payment", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(request),
+                    });
+                    const responseJson =
+                      (await serverResponse.json()) as PaymentResponse;
 
-              if (responseJson.paymentMethod !== "paypal") {
-                throw new Error(`Wrong response type`);
-              }
-              if (responseJson.step.step !== "create") {
-                throw new Error(`Wrong response type`);
-              }
-              return responseJson.step.orderId;
-            } catch (error) {
-              setMessage(`Could not initiate PayPal Checkout...${error}`);
-              throw error;
-            }
-          }}
+                    if (responseJson.paymentMethod !== "paypal") {
+                      throw new Error(`Wrong response type`);
+                    }
+                    if (responseJson.step.step !== "create") {
+                      throw new Error(`Wrong response type`);
+                    }
+                    return responseJson.step.orderId;
+                  } catch (error) {
+                    setMessage(`Could not initiate PayPal Checkout...${error}`);
+                    throw error;
+                  }
+                }
+              : undefined
+          }
+          createOrder={
+            !shared.subscription
+              ? async () => {
+                  try {
+                    const request: PaypalPaymentRequest = {
+                      paymentMethod: "paypal",
+                      params: {
+                        step: {
+                          step: "create_order",
+                          mode: "payment",
+                          amount: ((shared.amount ?? 0) * 100).toFixed(0),
+                        },
+                      },
+                    };
+                    const serverResponse = await fetch("/api/payment", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(request),
+                    });
+                    const responseJson =
+                      (await serverResponse.json()) as PaymentResponse;
+
+                    if (responseJson.paymentMethod !== "paypal") {
+                      throw new Error(`Wrong response type`);
+                    }
+                    if (responseJson.step.step !== "create") {
+                      throw new Error(`Wrong response type`);
+                    }
+                    return responseJson.step.orderId;
+                  } catch (error) {
+                    setMessage(`Could not initiate PayPal Checkout...${error}`);
+                    throw error;
+                  }
+                }
+              : undefined
+          }
           onApprove={async (data, actions) => {
             try {
               const request: PaypalPaymentRequest = {

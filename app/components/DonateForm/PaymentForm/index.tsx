@@ -71,9 +71,13 @@ export default function PaymentForm() {
         {/*  </button>*/}
         {/*</div>*/}
         <div className={s.buttons}>
-          <div className={s.description}>{sharedPaymentInformation.product?.description}</div>
+          <div className={s.description}>
+            {sharedPaymentInformation.product?.description}
+          </div>
           <Stripe shared={sharedPaymentInformation} />
-          <PayPal shared={sharedPaymentInformation}  />
+          {!sharedPaymentInformation.subscription && (
+            <PayPal shared={sharedPaymentInformation} />
+          )}
 
           {/*{method === "venmno" && <Venmno />}*/}
           {/*{method === "payPal" && <PayPal />}*/}
