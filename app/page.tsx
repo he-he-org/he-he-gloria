@@ -22,6 +22,7 @@ import Photo02 from "./assets/photos/02.jpeg";
 import Photo03 from "./assets/photos/03.jpeg";
 import Photo04 from "./assets/photos/04.jpeg";
 import Photo05 from "./assets/photos/05.jpeg";
+import Photo06 from "./assets/photos/06.jpeg";
 import DonateButton from "./components/DonateButton";
 import Numbers from "./components/Numbers";
 import PhotoGallery from "./components/PhotoGallery";
@@ -473,6 +474,11 @@ export default function Page() {
               src: Photo02.src,
               title:
                 "Our doctors seem to have found something surprising. Is it twins?",
+            },
+            {
+              src: Photo06.src,
+              title:
+                "Donna Gloria in real life",
             },
             {
               src: Photo03.src,
