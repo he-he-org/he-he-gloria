@@ -87,10 +87,10 @@ export default function Page() {
                 </Text>
                 <Text>
                   This village nestled amidst breathtaking mountains fosters
-                  a&nbsp;close-knit community. However, faces challenges when it
-                  comes to&nbsp;accessing quality healthcare. Donna Gloria with
-                  her big heart and&nbsp;even bigger family, understands
-                  the&nbsp;struggles all too well.
+                  a&nbsp;close-knit community. However, she faces challenges
+                  when it comes to&nbsp;accessing quality healthcare. Donna
+                  Gloria with her big heart and&nbsp;even bigger family,
+                  understands the&nbsp;struggles all too well.
                 </Text>
                 <Text>
                   <b>
@@ -169,8 +169,8 @@ export default function Page() {
                   — This village is located at the&nbsp;intersection of several
                   roads in&nbsp;the&nbsp;middle of the&nbsp;wilderness, making
                   it a&nbsp;unique place that can be reached by&nbsp;people from
-                  the&nbsp;3 nearby villages - Kiche, Hueuetenango, and
-                  Totonicapan.
+                  the&nbsp;4 departments – Kiche, Huehuetenango, Quetzaltenango
+                  and Totonicapan.
                 </Quote>
                 <SideBySideBlock>
                   <div>
@@ -190,7 +190,7 @@ export default function Page() {
                   </div>
                   <div>
                     <Text>
-                      <b>However, their path was not without challenges.</b>
+                      <b>However, their path was not without challenges.</b>{" "}
                       Skepticism lingered among the villagers, unsure of the
                       impact this initiative could bring.
                     </Text>
@@ -205,7 +205,9 @@ export default function Page() {
             </SideBySideBlock>
             <SideBySideBlock columnTemplate="765px auto" mobileReverse gap={40}>
               <SvgAnimation>
-                <Illustration5Svg className={[s.illustration, s.illustration5].join(" ")} />
+                <Illustration5Svg
+                  className={[s.illustration, s.illustration5].join(" ")}
+                />
               </SvgAnimation>
               <div>
                 <Header1>Gaining trust</Header1>
@@ -215,8 +217,8 @@ export default function Page() {
                 <Text>
                   But as days turned into weeks, the&nbsp;clinic’s construction
                   became a&nbsp;symbol of&nbsp;hope — an&nbsp;embodiment
-                  of&nbsp;a&nbsp;future where healthcare is no&nbsp;longer
-                  an&nbsp;elusive dream.{" "}
+                  of&nbsp;a&nbsp;future where healthcare would no&nbsp;longer be
+                  an&nbsp;elusive dream{" "}
                   <b>
                     With the&nbsp;support of&nbsp;Donna Gloria, her husband, and
                     the entire village, the&nbsp;clinic gradually took shape.
@@ -294,7 +296,9 @@ export default function Page() {
           <div className={s.content}>
             <SideBySideBlock gap={20} columnTemplate="760px auto" mobileReverse>
               <SvgAnimation>
-                <Illustration8Svg className={[s.illustration, s.illustration8].join(' ')} />
+                <Illustration8Svg
+                  className={[s.illustration, s.illustration8].join(" ")}
+                />
               </SvgAnimation>
               <div>
                 <Header1 style={{ color: "white" }}>The clinic is open</Header1>
@@ -381,12 +385,17 @@ export default function Page() {
                 </Text>
               </div>
               <SvgAnimation>
-                <Illustration10Svg className={[s.illustration,s.illustration10].join(' ')} />
+                <Illustration10Svg
+                  className={[s.illustration, s.illustration10].join(" ")}
+                />
               </SvgAnimation>
             </SideBySideBlock>
             <SideBySideBlock columnTemplate="680 auto" mobileReverse>
               <SvgAnimation>
-                <Illustration11Svg className={[s.illustration, s.illustration11].join(' ')} style={{ marginLeft: "auto" }} />
+                <Illustration11Svg
+                  className={[s.illustration, s.illustration11].join(" ")}
+                  style={{ marginLeft: "auto" }}
+                />
               </SvgAnimation>
               <div>
                 <FirstLine>Other times, she seeks care</FirstLine>
@@ -447,7 +456,10 @@ export default function Page() {
                 </SideBySideBlock>
               </div>
               <SvgAnimation>
-                <Illustration12Svg className={[s.illustration, s.illustration12]} style={{ marginTop: "30px" }} />
+                <Illustration12Svg
+                  className={[s.illustration, s.illustration12]}
+                  style={{ marginTop: "30px" }}
+                />
               </SvgAnimation>
             </SideBySideBlock>
             <DonateForm />

@@ -8,12 +8,17 @@ export default function Footer(props: Props) {
   return (
     <div className={s.root}>
       <div className={s.content}>
-        <div>
+        <div className={s.leftText}>
           <MainLogo />
           <div className={s.copyright}>
-            © Health & Help<br/>
-            All rights reserved.<br/>
+            © Health & Help
+            <br />
+            All rights reserved.
+            <br />
             International Charity Organization
+            <br />
+            Health & Help is a recognized 501(c)(3) not-for-profit organization
+            by the IRS. EIN: 81-3432192
           </div>
         </div>
         <div className={s.people}>
