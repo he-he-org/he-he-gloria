@@ -4,6 +4,7 @@ import { SharedPaymentInformation } from "../types";
 import { useCallback } from "react";
 import { PaymentRequest } from "../../../../../shared/payment";
 import s from "./index.module.scss";
+import LogoSvg from "./logo.svg";
 
 const ENV =
   process.env.NODE_ENV === "development" ? "development" : "production";
@@ -42,7 +43,7 @@ export default function Stripe(props: Props) {
       onClick={handleSubmit}
       className={s.button}
     >
-      Stripe
+      <LogoSvg alt="Stripe" title="Stripe" />
     </button>
   );
 }

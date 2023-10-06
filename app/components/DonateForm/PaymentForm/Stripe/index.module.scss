@@ -1,8 +1,17 @@
+@use "app/utils";
+
 .button {
-  background: #635bff;
+  background: utils.$colors-gray;
   color: white;
   height: 45px;
   font-size: 20px;
   border: none;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > svg {
+    height: 40px;
+  }
 }
