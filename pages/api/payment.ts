@@ -69,7 +69,10 @@ async function paypalFlow(
 
   if (step.step === "create_order") {
     try {
-      const orderId = await paypalCreateOrder(step.amount);
+      const orderId =
+        step.mode === "payment"
+          ? await paypalCreateOrder(step.amount)
+          : await paypalCreateSubscription(step.amount);
       return {
         paymentMethod: "paypal",
         step: {
@@ -93,8 +96,10 @@ async function paypalFlow(
         },
       };
     } catch (error) {
-      console.error("Failed to capture order:", error);
-      throw new Error("Failed to capture order");
+      console.error("Failed to capture order", error);
+      throw new Error(
+        `Failed to capture order! Error: ${error.message ?? "unknown"}`
+      );
     }
   } else {
     throw new Error(`Unknown step: ${JSON.stringify(step)}`);
@@ -135,7 +140,6 @@ async function generateAccessToken() {
 
 const paypalCreateOrder = async (amount: string): Promise<string> => {
   const accessToken = await generateAccessToken();
-  console.log("accessToken", accessToken);
   const url = `${PAYPAL_BASE_API_URL}/v2/checkout/orders`;
   const payload = {
     intent: "CAPTURE",
@@ -163,17 +167,21 @@ const paypalCreateOrder = async (amount: string): Promise<string> => {
   return json.id;
 };
 
+const paypalCreateSubscription = async (amount: string): Promise<string> => {
+  throw new Error(`Paypal subscription are not supported yet`);
+};
+
 const capturePayment = async (orderID) => {
   const accessToken = await generateAccessToken();
 
-  const url = `${PAYPAL_BASE_API_URL}/v2/checkout/orders/\${orderID}/capture`;
+  const url = `${PAYPAL_BASE_API_URL}/v2/checkout/orders/${orderID}/capture`;
 
   const response = await fetch(url, {
     method: "post",
 
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${accessToken}∫`,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
 

@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import {
   PaymentResponse,
   PaypalPaymentRequest,
 } from "../../../../../shared/payment";
 import { SharedPaymentInformation } from "../types";
+import Message from "./Message";
 
 // Renders errors or successfull transactions on the screen.
-function Message({ content }) {
-  return <p>{content}</p>;
-}
+
 type Props = { shared: SharedPaymentInformation };
 
 const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
@@ -27,6 +26,13 @@ export default function PayPal(props: Props) {
   };
 
   const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
+
+  // Hack to fix memoization inside of PayPalButtons component
+  const sharedInfoRef = useRef<SharedPaymentInformation>(shared);
+  useEffect(() => {
+    sharedInfoRef.current = shared;
+  }, [shared]);
 
   return (
     <>
@@ -40,6 +46,7 @@ export default function PayPal(props: Props) {
           createSubscription={
             shared.subscription
               ? async () => {
+                  const shared = sharedInfoRef.current;
                   try {
                     const request: PaypalPaymentRequest = {
                       paymentMethod: "paypal",
@@ -58,6 +65,9 @@ export default function PayPal(props: Props) {
                       },
                       body: JSON.stringify(request),
                     });
+                    if (serverResponse.status >= 300) {
+                      throw new Error(`Bad server response`);
+                    }
                     const responseJson =
                       (await serverResponse.json()) as PaymentResponse;
 
@@ -69,6 +79,7 @@ export default function PayPal(props: Props) {
                     }
                     return responseJson.step.orderId;
                   } catch (error) {
+                    setIsError(true);
                     setMessage(`Could not initiate PayPal Checkout...${error}`);
                     throw error;
                   }
@@ -78,6 +89,7 @@ export default function PayPal(props: Props) {
           createOrder={
             !shared.subscription
               ? async () => {
+                  const shared = sharedInfoRef.current;
                   try {
                     const request: PaypalPaymentRequest = {
                       paymentMethod: "paypal",
@@ -107,6 +119,7 @@ export default function PayPal(props: Props) {
                     }
                     return responseJson.step.orderId;
                   } catch (error) {
+                    setIsError(true);
                     setMessage(`Could not initiate PayPal Checkout...${error}`);
                     throw error;
                   }
@@ -131,6 +144,9 @@ export default function PayPal(props: Props) {
                 },
                 body: JSON.stringify(request),
               });
+              if (serverResponse.status >= 300) {
+                throw new Error(`Bad server response`);
+              }
 
               const responseJson =
                 (await serverResponse.json()) as PaymentResponse;
@@ -166,8 +182,9 @@ export default function PayPal(props: Props) {
                 const transaction =
                   orderData.purchase_units[0].payments.captures[0];
                 setMessage(
-                  `Transaction ${transaction.status}: ${transaction.id}. See console for all available details`
+                  `You donation successfully accepted! Thank you very much!`
                 );
+                setIsError(false);
                 console.log(
                   "Capture result",
                   orderData,
@@ -176,12 +193,15 @@ export default function PayPal(props: Props) {
               }
             } catch (error) {
               setMessage(`Could not initiate PayPal Checkout...${error}`);
+              setIsError(true);
               throw error;
             }
           }}
         />
       </PayPalScriptProvider>
-      <Message content={message} />
+      {message !== "" && (
+        <Message type={isError ? "ERROR" : "SUCCESS"}>{message}</Message>
+      )}
     </>
   );
 }

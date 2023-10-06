@@ -78,7 +78,6 @@ export default function PaymentForm() {
           {!sharedPaymentInformation.subscription && (
             <PayPal shared={sharedPaymentInformation} />
           )}
-
           {/*{method === "venmno" && <Venmno />}*/}
           {/*{method === "payPal" && <PayPal />}*/}
           {/*{method === "crypto" && <Crypto />}*/}

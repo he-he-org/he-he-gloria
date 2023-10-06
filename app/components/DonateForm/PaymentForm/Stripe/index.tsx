@@ -2,7 +2,7 @@ import envSettings from "../../../../../envSettings";
 import { EnvSettings } from "../../../../../shared/env";
 import { SharedPaymentInformation } from "../types";
 import { useCallback } from "react";
-import { PaymentRequest } from "../../../../../shared/payment";
+import {PaymentRequest, StripePaymentResponse} from "../../../../../shared/payment";
 import s from "./index.module.scss";
 import LogoSvg from "./logo.svg";
 
@@ -31,7 +31,7 @@ export default function Stripe(props: Props) {
       },
       body: JSON.stringify(request),
     });
-    const responseJson = await serverResponse.json();
+    const responseJson: StripePaymentResponse = await serverResponse.json();
     if (responseJson.location) {
       window.location.href = responseJson.location;
     }

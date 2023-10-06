@@ -1,0 +1,14 @@
+@use "app/utils";
+
+.root {
+  font-weight: bold;
+  text-align: center;
+
+  &.type-SUCCESS {
+    color: #53d376;
+  }
+
+  &.type-ERROR {
+    color: red;
+  }
+}
