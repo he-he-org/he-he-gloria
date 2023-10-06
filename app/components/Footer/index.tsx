@@ -40,6 +40,7 @@ export default function Footer(props: Props) {
               <div className={s.peopleItem}>Valeriia Molchanova</div>
               <div className={s.peopleItem}>Ann Pavlenko</div>
               <div className={s.peopleItem}>Valentina Putilina</div>
+              <div className={s.peopleItem}>Polina Druzina</div>
             </div>
           </div>
           <div className={s.peopleGroup}>
@@ -57,6 +58,9 @@ export default function Footer(props: Props) {
             <div className={s.peopleRole}>Photo:</div>
             <div className={s.peopleList}>
               <div className={s.peopleItem}>Polina Shumkova</div>
+              <div className={s.peopleItem}>Evfrosiniia Kapustina</div>
+              <div className={s.peopleItem}>Markova Olga</div>
+              <div className={s.peopleItem}>Vlasova Elena</div>
             </div>
           </div>
         </div>
