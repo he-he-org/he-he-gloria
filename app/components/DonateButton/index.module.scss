@@ -18,8 +18,9 @@
   border: 2px solid utils.$colors-red;
   color: utils.$colors-red;
   background-color: transparent;
-  min-height: 56px;
+  min-height: 68px;
   text-decoration: none;
+  box-sizing: border-box;
 
   &:disabled,
   &.isDisabled {
@@ -35,5 +36,13 @@
   &:active {
     color: white;
     background-color: utils.$colors-red-2;
+  }
+}
+
+@media (max-width: utils.$mobile-width) {
+  .buttonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -6,6 +6,7 @@ interface Props {
   href?: string;
   onClick?: () => void;
   children: string;
+  style?: object;
 }
 
 export default function DonateButton(props: Props) {
@@ -15,15 +16,24 @@ export default function DonateButton(props: Props) {
 
   if (href != null) {
     return (
-      <a className={className} href={href}>
-        {props.children}
-      </a>
+      <div className={s.buttonContainer}>
+        <a className={className} href={href} style={props.style}>
+          {props.children}
+        </a>
+      </div>
     );
   }
 
   return (
-    <button className={className} onClick={onClick} disabled={isDisabled}>
-      {props.children}
-    </button>
+    <div className={s.buttonContainer}>
+      <button
+        className={className}
+        onClick={onClick}
+        disabled={isDisabled}
+        style={props.style}
+      >
+        {props.children}
+      </button>
+    </div>
   );
 }

@@ -477,8 +477,7 @@ export default function Page() {
             },
             {
               src: Photo06.src,
-              title:
-                "Donna Gloria in real life",
+              title: "Donna Gloria in real life",
             },
             {
               src: Photo03.src,
