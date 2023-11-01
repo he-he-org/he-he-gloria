@@ -46,11 +46,14 @@ export default function Page() {
             <SideBySideBlock columnTemplate="560px auto">
               <div>
                 <Header1>Welcome to Health & Help</Header1>
-                <FirstLine>We are a&nbsp;charity </FirstLine>
+                <FirstLine>
+                  We are a&nbsp;women-led volunteer organization
+                </FirstLine>
                 <Text>
-                  that transcends borders and empowers communities
-                  by&nbsp;providing essential care to&nbsp;people in&nbsp;places
-                  where resources are scarce and&nbsp;doctors even more so.
+                  that transcends
+                  borders and&nbsp;empowers communities by&nbsp;providing
+                  essential care to&nbsp;people in&nbsp;places where resources
+                  are scarce and&nbsp;doctors even more so.
                 </Text>
                 <Text>
                   Together, we have established 2 clinics

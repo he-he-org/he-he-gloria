@@ -59,8 +59,8 @@ export default function Footer(props: Props) {
             <div className={s.peopleList}>
               <div className={s.peopleItem}>Polina Shumkova</div>
               <div className={s.peopleItem}>Evfrosiniia Kapustina</div>
-              <div className={s.peopleItem}>Markova Olga</div>
-              <div className={s.peopleItem}>Vlasova Elena</div>
+              <div className={s.peopleItem}>Olga Markova</div>
+              <div className={s.peopleItem}>Elena Vlasova</div>
             </div>
           </div>
         </div>
