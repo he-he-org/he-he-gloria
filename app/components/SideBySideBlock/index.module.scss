@@ -4,8 +4,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  margin: 32px 0;
   position: relative;
+
+  &:not(:first-child) {
+    margin-top: 32px;
+  }
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
 }
 
 @media (max-width: utils.$mobile-width) {

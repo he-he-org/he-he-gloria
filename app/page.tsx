@@ -43,7 +43,7 @@ export default function Page() {
         <Header />
         <div className={s.black}>
           <div className={s.content}>
-            <SideBySideBlock columnTemplate="560px auto">
+            <SideBySideBlock columnTemplate="560px auto" mobileReverse>
               <div>
                 <Header1>Welcome to Health & Help</Header1>
                 <FirstLine>
