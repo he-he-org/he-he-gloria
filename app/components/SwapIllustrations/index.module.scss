@@ -1,0 +1,31 @@
+@use "app/utils";
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  position: relative;
+
+  &:not(:first-child) {
+    margin-top: 32px;
+  }
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: utils.$mobile-width) {
+  .root {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &:not(:first-child) {
+      margin-top: 64px;
+    }
+
+    &.mobileReverse {
+      flex-direction: column-reverse;
+    }
+  }
+}

@@ -1,8 +1,10 @@
 "use client";
 import Illustration1Svg from "../../assets/illustration_1.svg";
+import Illustration1MobileSvg from "../../assets/illustration_1_mobile.svg";
 import { useLayoutEffect, useState } from "react";
 import { animateOpacity, queryPathGroups } from "../animation/SvgAnimation";
 import s from "./index.module.scss";
+import SwapIllustrations from "../SwapIllustrations";
 
 export default function Map() {
   const [show, setShow] = useState(false);
@@ -43,10 +45,11 @@ export default function Map() {
 
   return (
     <div ref={setRef} className={s.root}>
-      <Illustration1Svg
-          className={s.image}
-
-      />
+      <SwapIllustrations
+        mobile={<Illustration1MobileSvg className={s.image} />}
+      >
+        <Illustration1Svg className={s.image} />
+      </SwapIllustrations>
     </div>
   );
 }

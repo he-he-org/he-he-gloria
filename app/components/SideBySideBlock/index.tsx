@@ -1,7 +1,5 @@
-"use client";
 import s from "./index.module.scss";
 import React from "react";
-import { useIsMobile } from "../../helpers/browser";
 
 interface Props {
   children: React.ReactNode[];
@@ -12,8 +10,6 @@ interface Props {
 
 export default function SideBySideBlock(props: Props) {
   const { children, columnTemplate, gap, mobileReverse } = props;
-
-  const isMobile = useIsMobile();
 
   return (
     <div

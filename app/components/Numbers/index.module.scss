@@ -50,7 +50,7 @@
 
 @media (max-width: utils.$mobile-width) {
   .root {
-    min-height: 488px;
+    min-height: 430px;
   }
   .value {
     font-size: 64px;
@@ -64,6 +64,9 @@
   }
   .title {
     font-size: 20px;
+  }
+  .bottom {
+    margin-top: 80px;
   }
 }
 
