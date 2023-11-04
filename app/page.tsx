@@ -4,7 +4,9 @@ import SideBySideBlock from "./components/SideBySideBlock";
 import Text from "./components/Text";
 import s from "./page.module.scss";
 import DonnaGloriaSvg from "./assets/donna_gloria.svg";
+import DonnaGloriaMobileSvg from "./assets/donna_gloria_mobile.svg";
 import Illustration2Svg from "./assets/illustration_2.svg";
+import Illustration2MobileSvg from "./assets/illustration_2_mobile.svg";
 import Illustration3Svg from "./assets/illustration_3.svg";
 import Illustration4Svg from "./assets/illustration_4.svg";
 import Illustration5Svg from "./assets/illustration_5.svg";
@@ -15,6 +17,12 @@ import Illustration9Svg from "./assets/illustration_9.svg";
 import Illustration10Svg from "./assets/illustration_10.svg";
 import Illustration11Svg from "./assets/illustration_11.svg";
 import Illustration12Svg from "./assets/illustration_12.svg";
+import Illustration3MobileSvg from "./assets/illustration_3_mobile.svg";
+import Illustration4MobileSvg from "./assets/illustration_4_mobile.svg";
+import Illustration5MobileSvg from "./assets/illustration_5_mobile.svg";
+import Illustration6MobileSvg from "./assets/illustration_6_mobile.svg";
+import Illustration8MobileSvg from "./assets/illustration_8_mobile.svg";
+import Illustration11MobileSvg from "./assets/illustration_11_mobile.svg";
 import BgGradientSvg from "./assets/bg_gradient.svg";
 import DishSvg from "./assets/dish.svg";
 import Photo01 from "./assets/photos/01.jpeg";
@@ -35,6 +43,7 @@ import SvgAnimation from "./components/animation/SvgAnimation";
 import ScrollDown from "./components/ScrollDown";
 import React from "react";
 import Footer from "./components/Footer";
+import MobileSwap from "./components/MobileSwap";
 
 export default function Page() {
   return (
@@ -50,10 +59,9 @@ export default function Page() {
                   We are a&nbsp;women-led volunteer organization
                 </FirstLine>
                 <Text>
-                  that transcends
-                  borders and&nbsp;empowers communities by&nbsp;providing
-                  essential care to&nbsp;people in&nbsp;places where resources
-                  are scarce and&nbsp;doctors even more so.
+                  that transcends borders and&nbsp;empowers communities
+                  by&nbsp;providing essential care to&nbsp;people in&nbsp;places
+                  where resources are scarce and&nbsp;doctors even more so.
                 </Text>
                 <Text>
                   Together, we have established 2 clinics
@@ -77,9 +85,17 @@ export default function Page() {
             <Space height={50} />
             <SideBySideBlock>
               <SvgAnimation>
-                <DonnaGloriaSvg
-                  className={[s.illustration, s.gloria].join(" ")}
-                />
+                <MobileSwap
+                  mobile={
+                    <DonnaGloriaMobileSvg
+                      className={[s.illustration, s.gloria].join(" ")}
+                    />
+                  }
+                >
+                  <DonnaGloriaSvg
+                    className={[s.illustration, s.gloria].join(" ")}
+                  />
+                </MobileSwap>
               </SvgAnimation>
               <div>
                 <Header1>This is Gloria</Header1>
@@ -107,7 +123,7 @@ export default function Page() {
               </div>
             </SideBySideBlock>
             <Space height={25} />
-            <SideBySideBlock columnTemplate="auto 782px" gap={30}>
+            <SideBySideBlock columnTemplate="auto 782px" gap={30} mobileReverse>
               <div>
                 <FirstLine>Donna Gloria works as a&nbsp;cook,</FirstLine>
                 <Text>
@@ -132,15 +148,27 @@ export default function Page() {
                 </Text>
               </div>
               <SvgAnimation>
-                <Illustration2Svg
-                  className={[s.illustration, s.illustration2].join(" ")}
-                />
+                <MobileSwap
+                  mobile={
+                    <Illustration2MobileSvg
+                      className={[s.illustration, s.illustration2].join(" ")}
+                    />
+                  }
+                >
+                  <Illustration2Svg
+                    className={[s.illustration, s.illustration2].join(" ")}
+                  />
+                </MobileSwap>
               </SvgAnimation>
             </SideBySideBlock>
             <Space height={12} />
-            <SideBySideBlock columnTemplate="713px auto" mobileReverse={true}>
+            <SideBySideBlock columnTemplate="713px auto">
               <SvgAnimation>
-                <Illustration3Svg className={s.illustration} />
+                <MobileSwap
+                  mobile={<Illustration3MobileSvg className={s.illustration} />}
+                >
+                  <Illustration3Svg className={s.illustration} />
+                </MobileSwap>
               </SvgAnimation>
               <div>
                 <FirstLine>
@@ -162,7 +190,7 @@ export default function Page() {
               </div>
             </SideBySideBlock>
             <Space height={50} />
-            <SideBySideBlock columnTemplate="760px auto">
+            <SideBySideBlock mobileReverse columnTemplate="760px auto">
               <div>
                 <Header1>
                   We saw it all…
@@ -202,16 +230,32 @@ export default function Page() {
                 </SideBySideBlock>
               </div>
               <SvgAnimation>
-                <Illustration4Svg
-                  className={[s.illustration, s.illustration4].join(" ")}
-                />
+                <MobileSwap
+                  mobile={
+                    <Illustration4MobileSvg
+                      className={[s.illustration, s.illustration4].join(" ")}
+                    />
+                  }
+                >
+                  <Illustration4Svg
+                    className={[s.illustration, s.illustration4].join(" ")}
+                  />
+                </MobileSwap>
               </SvgAnimation>
             </SideBySideBlock>
-            <SideBySideBlock columnTemplate="765px auto" mobileReverse gap={40}>
+            <SideBySideBlock columnTemplate="765px auto" gap={40}>
               <SvgAnimation>
-                <Illustration5Svg
-                  className={[s.illustration, s.illustration5].join(" ")}
-                />
+                <MobileSwap
+                  mobile={
+                    <Illustration5MobileSvg
+                      className={[s.illustration, s.illustration5].join(" ")}
+                    />
+                  }
+                >
+                  <Illustration5Svg
+                    className={[s.illustration, s.illustration5].join(" ")}
+                  />
+                </MobileSwap>
               </SvgAnimation>
               <div>
                 <Header1>Gaining trust</Header1>
@@ -239,9 +283,17 @@ export default function Page() {
             </SideBySideBlock>
             <Space height={20} />
             <SvgAnimation>
-              <Illustration6Svg
-                className={[s.illustration, s.illustration6].join(" ")}
-              />
+              <MobileSwap
+                mobile={
+                  <Illustration6MobileSvg
+                    className={[s.illustration, s.illustration6].join(" ")}
+                  />
+                }
+              >
+                <Illustration6Svg
+                  className={[s.illustration, s.illustration6].join(" ")}
+                />
+              </MobileSwap>
             </SvgAnimation>
             <Space height={100} />
             <SideBySideBlock columnTemplate="720px auto">
@@ -300,9 +352,17 @@ export default function Page() {
           <div className={s.content}>
             <SideBySideBlock gap={20} columnTemplate="760px auto" mobileReverse>
               <SvgAnimation>
-                <Illustration8Svg
-                  className={[s.illustration, s.illustration8].join(" ")}
-                />
+                <MobileSwap
+                  mobile={
+                    <Illustration8MobileSvg
+                      className={[s.illustration, s.illustration8].join(" ")}
+                    />
+                  }
+                >
+                  <Illustration8Svg
+                    className={[s.illustration, s.illustration8].join(" ")}
+                  />
+                </MobileSwap>
               </SvgAnimation>
               <div>
                 <Header1 style={{ color: "white" }}>The clinic is open</Header1>
@@ -321,10 +381,12 @@ export default function Page() {
                 </Text>
               </div>
             </SideBySideBlock>
-            <Header1>The clinic’s first trial</Header1>
-            <FirstLine>
-              Despite Donna Gloria’s own struggles with asthma,
-            </FirstLine>
+            <div>
+              <Header1>The clinic’s first trial</Header1>
+              <FirstLine>
+                Despite Donna Gloria’s own struggles with asthma,
+              </FirstLine>
+            </div>
             <SideBySideBlock columnTemplate="auto 395px auto">
               <div>
                 <Text>
@@ -345,7 +407,7 @@ export default function Page() {
                 </Text>
               </div>
               <SvgAnimation>
-                <Illustration9Svg className={s.illustration} />
+                <Illustration9Svg className={[s.illustration, s.illustration9].join(' ')} />
               </SvgAnimation>
               <div>
                 <Text>
@@ -396,10 +458,19 @@ export default function Page() {
             </SideBySideBlock>
             <SideBySideBlock columnTemplate="680 auto" mobileReverse>
               <SvgAnimation>
-                <Illustration11Svg
-                  className={[s.illustration, s.illustration11].join(" ")}
-                  style={{ marginLeft: "auto" }}
-                />
+                <MobileSwap
+                  mobile={
+                    <Illustration11MobileSvg
+                      className={[s.illustration, s.illustration11].join(" ")}
+                      style={{ marginLeft: "auto" }}
+                    />
+                  }
+                >
+                  <Illustration11Svg
+                    className={[s.illustration, s.illustration11].join(" ")}
+                    style={{ marginLeft: "auto" }}
+                  />
+                </MobileSwap>
               </SvgAnimation>
               <div>
                 <FirstLine>Other times, she seeks care</FirstLine>

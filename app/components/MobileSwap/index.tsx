@@ -7,7 +7,7 @@ interface Props {
   mobile: React.ReactNode;
 }
 
-export default function SwapIllustrations(props: Props) {
+export default function MobileSwap(props: Props) {
   const { children, mobile } = props;
 
   const isMobile = useIsMobile();
