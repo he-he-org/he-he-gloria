@@ -90,7 +90,7 @@
   .illustration {
     max-width: 100%;
     height: auto;
-    min-width: 400px;
+    min-width: 375px;
     position: relative;
     left: calc(50vw - #{utils.$mobile-global-padding});
     transform: translateX(-50%);
@@ -99,19 +99,15 @@
     }
 
     &.illustration5 {
-      min-width: 375px;
     }
 
     &.illustration6 {
-      min-width: 375px;
     }
 
     &.illustration8 {
-      min-width: 450px;
     }
 
     &.illustration9 {
-      min-width: 350px;
     }
 
     &.illustration10 {
@@ -119,11 +115,9 @@
     }
 
     &.illustration11 {
-      min-width: 350px;
     }
 
     &.illustration12 {
-      min-width: 350px;
     }
 
     &.illustration4,
