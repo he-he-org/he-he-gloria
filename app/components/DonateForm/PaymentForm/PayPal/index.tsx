@@ -184,7 +184,7 @@ export default function PayPal(props: Props) {
                 const transaction =
                   orderData.purchase_units[0].payments.captures[0];
                 setMessage(
-                  `You donation successfully accepted! Thank you very much!`
+                  `Donation accepted! Thank you!`
                 );
                 setIsError(false);
                 console.log(
