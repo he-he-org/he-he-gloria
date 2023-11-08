@@ -37,7 +37,7 @@ const ENV: { [env in "development" | "production"]: EnvSettings } = {
           subscription: false,
         },
         PRODUCT_2: {
-          stripeProductId: "price_1OACWwIjit1s7RiHuCvfwPI5",
+          stripeProductId: "prod_Oy8o9a527cUYtp",
           subscription: false,
         },
         PRODUCT_3: {
