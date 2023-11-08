@@ -2,11 +2,15 @@
 
 .root {
   pointer-events: none;
+
+  &:not(.show) {
+    visibility: hidden;
+  }
 }
 
 .image {
   position: absolute;
-  top: -60px;
+  top: -42px;
   right: -50px;
   width: 727px;
   height: 727px;

@@ -88,14 +88,32 @@
 
 @media (max-width: utils.$mobile-width) {
   .illustration {
-    max-width: 100%;
+    //max-width: 100%;
+    //height: auto;
+    //min-width: 375px;
+    //position: relative;
+    //left: calc(50vw - #{utils.$mobile-global-padding});
+    //transform: translateX(-50%);
+    //width: 100vw !important;
+    width: calc(100vw - #{utils.$mobile-global-padding * 2}) !important;
+
     height: auto;
-    min-width: 375px;
-    position: relative;
-    left: calc(50vw - #{utils.$mobile-global-padding});
-    transform: translateX(-50%);
+    //min-width: 375px;
+    //position: relative;
+    //left: 50%;
+    //transform: translateX(-50%);
 
     &.gloria {
+    }
+
+    &.illustration2 {
+      width: calc(100vw - #{utils.$mobile-global-padding}) !important;
+      margin-left: -#{utils.$mobile-global-padding};
+    }
+
+    &.illustration3 {
+      width: calc(100vw - #{utils.$mobile-global-padding}) !important;
+      margin-left: -#{utils.$mobile-global-padding};
     }
 
     &.illustration5 {
@@ -105,13 +123,14 @@
     }
 
     &.illustration8 {
+      width: 100vw !important;
+      margin-left: -#{utils.$mobile-global-padding};
     }
 
     &.illustration9 {
     }
 
     &.illustration10 {
-      min-width: 450px;
     }
 
     &.illustration11 {
@@ -144,7 +163,8 @@
       height: 1280px;
     }
     .dish {
-      transform: translateX(-178px);
+      transform: translateX(-170px);
+      width: calc(100vw - #{utils.$mobile-global-padding * 2});
     }
   }
   .white {

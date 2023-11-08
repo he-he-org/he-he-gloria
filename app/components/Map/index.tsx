@@ -2,7 +2,7 @@
 import Illustration1Svg from "../../assets/illustration_1.svg";
 import Illustration1MobileSvg from "../../assets/illustration_1_mobile.svg";
 import { useLayoutEffect, useState } from "react";
-import { animateOpacity, queryPathGroups } from "../animation/SvgAnimation";
+import { animateOpacity } from "../animation/SvgAnimation";
 import s from "./index.module.scss";
 import MobileSwap from "../MobileSwap";
 
@@ -22,16 +22,16 @@ export default function Map() {
         for (const child of children) {
           const el = child as SVGPathElement;
           const animationTime = 500;
-          if (el.id === "titles") {
-            const groups = queryPathGroups(el, "draw\\:reverse");
-          } else {
-            animateOpacity(el, {
-              show,
-              animationTime: animationTime,
-              delay,
-            });
-            delay += animationTime;
-          }
+          // if (el.id === "titles") {
+          //   const groups = queryPathGroups(el, "draw\\:reverse");
+          // } else {
+          animateOpacity(el, {
+            show,
+            animationTime: animationTime,
+            delay,
+          });
+          delay += animationTime;
+          // }
         }
       }
     }
@@ -44,10 +44,11 @@ export default function Map() {
   }, []);
 
   return (
-    <div ref={setRef} className={s.root}>
-      <MobileSwap
-        mobile={<Illustration1MobileSvg className={s.image} />}
-      >
+    <div
+      ref={setRef}
+      className={[s.root, show && s.show].filter(Boolean).join(" ")}
+    >
+      <MobileSwap mobile={<Illustration1MobileSvg className={s.image} />}>
         <Illustration1Svg className={s.image} />
       </MobileSwap>
     </div>

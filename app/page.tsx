@@ -165,9 +165,9 @@ export default function Page() {
             <SideBySideBlock columnTemplate="713px auto">
               <SvgAnimation>
                 <MobileSwap
-                  mobile={<Illustration3MobileSvg className={s.illustration} />}
+                  mobile={<Illustration3MobileSvg className={[s.illustration, s.illustration3].join(" ")} />}
                 >
-                  <Illustration3Svg className={s.illustration} />
+                  <Illustration3Svg className={[s.illustration, s.illustration3].join(" ")} />
                 </MobileSwap>
               </SvgAnimation>
               <div>

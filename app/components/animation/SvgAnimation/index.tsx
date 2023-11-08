@@ -1,13 +1,19 @@
 "use client";
 import React, { useLayoutEffect, useMemo, useState } from "react";
-import {useIsMobile, useScrollPosition, useViewportHeight} from "../../../helpers/browser";
+import {
+  useIsMobile,
+  useScrollPosition,
+  useViewportHeight,
+} from "../../../helpers/browser";
 
 interface Props {
   children: React.ReactNode;
 }
 
 const ANIMATION_SPEED = 0.2; // pixels per ms
+const ANIMATION_SPEED_MOBILE = 0.4; // pixels per ms
 const MAX_ANIMATION_TIME = 7000;
+const MAX_ANIMATION_TIME_MOBILE = 4500;
 const REVERSE_ANIMATION_SPEED = ANIMATION_SPEED * 3; // pixels per ms
 const PARALLAX_SPEED = 0.3;
 const PARALLAX_SHIFT = 500;
@@ -52,9 +58,15 @@ export default function SvgAnimation(props: Props) {
             (acc, x) => acc + x.getTotalLength(),
             0
           );
+          const animationSpeed = isMobile
+            ? ANIMATION_SPEED_MOBILE
+            : ANIMATION_SPEED;
+          const maxAnimationTime = isMobile
+            ? MAX_ANIMATION_TIME_MOBILE
+            : MAX_ANIMATION_TIME;
           const totalAnimationTime = Math.min(
-            MAX_ANIMATION_TIME,
-            totalLength / ANIMATION_SPEED
+            maxAnimationTime,
+            totalLength / animationSpeed
           );
           for (const maskElement of group) {
             const length = maskElement.getTotalLength();
@@ -81,19 +93,10 @@ export default function SvgAnimation(props: Props) {
           for (const maskElement of group) {
             const length = maskElement.getTotalLength();
             const animationTime = length / REVERSE_ANIMATION_SPEED;
-            // temporary disable text animation on mobile because of ios bug
-            if (isMobile) {
-              animateReverseDraw(maskElement, {
-                animationTime: 0,
-                show: true,
-                delay: 0,
-              });
-            } else {
-              animateReverseDraw(maskElement, {
-                animationTime,
-                show,
-              });
-            }
+            animateReverseDraw(maskElement, {
+              animationTime,
+              show,
+            });
           }
         }
       }
@@ -202,6 +205,9 @@ export function animateReverseDraw(
   pathElement.style.transitionDuration = show ? `${animationTime}ms` : "0ms";
   pathElement.style.transitionDelay = show ? `${delay}ms` : "0ms";
   if (show) {
-    pathElement.style.strokeDashoffset = `-${length}`;
+    // SVG animation in Safari works in reverse, fixing it
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    console.log("isSafari", isSafari)
+    pathElement.style.strokeDashoffset = isSafari ? `${length}` : `-${length}`;
   }
 }
