@@ -33,29 +33,6 @@ const ENV: { [env in "development" | "production"]: EnvSettings } = {
     stripe: {
       products: {
         PRODUCT_1: {
-          stripeProductId: "prod_OiNxfYtViyXOQx",
-          subscription: false,
-        },
-        PRODUCT_2: {
-          stripeProductId: "prod_OiNxGk7ZRmQi9S",
-          subscription: false,
-        },
-        PRODUCT_3: {
-          stripeProductId: "prod_OiNy3s1qv4k4fE",
-          subscription: false,
-        },
-        PRODUCT_4: {
-          stripeProductId: "prod_OiNyhvsWczhPPf",
-          subscription: false,
-        },
-      },
-    },
-  },
-  development: {
-    products: products,
-    stripe: {
-      products: {
-        PRODUCT_1: {
           stripeProductId: "prod_Oy8l78HVrfI1ls",
           subscription: false,
         },
@@ -69,6 +46,29 @@ const ENV: { [env in "development" | "production"]: EnvSettings } = {
         },
         PRODUCT_4: {
           stripeProductId: "prod_Oy8pMxrb2s8v1l",
+          subscription: false,
+        },
+      },
+    },
+  },
+  development: {
+    products: products,
+    stripe: {
+      products: {
+        PRODUCT_1: {
+          stripeProductId: "prod_OiNxfYtViyXOQx",
+          subscription: false,
+        },
+        PRODUCT_2: {
+          stripeProductId: "prod_OiNxGk7ZRmQi9S",
+          subscription: false,
+        },
+        PRODUCT_3: {
+          stripeProductId: "prod_OiNy3s1qv4k4fE",
+          subscription: false,
+        },
+        PRODUCT_4: {
+          stripeProductId: "prod_OiNyhvsWczhPPf",
           subscription: false,
         },
       },
