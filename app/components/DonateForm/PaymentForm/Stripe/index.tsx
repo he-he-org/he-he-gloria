@@ -16,24 +16,28 @@ export default function Stripe(props: Props) {
   const { shared } = props;
 
   const handleSubmit = useCallback(async () => {
-    const request: PaymentRequest = {
-      paymentMethod: "stripe",
-      params: {
-        productId: shared.product?.productId ?? "",
-        mode: shared.subscription ? "subscription" : "payment",
-        amount: ((shared.amount ?? 0) * 100).toFixed(0),
-      },
-    };
-    const serverResponse = await fetch("/api/payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(request),
-    });
-    const responseJson: StripePaymentResponse = await serverResponse.json();
-    if (responseJson.location) {
-      window.location.href = responseJson.location;
+    try {
+      const request: PaymentRequest = {
+        paymentMethod: "stripe",
+        params: {
+          productId: shared.product?.productId ?? "",
+          mode: shared.subscription ? "subscription" : "payment",
+          amount: ((shared.amount ?? 0) * 100).toFixed(0),
+        },
+      };
+      const serverResponse = await fetch("/api/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(request),
+      });
+      const responseJson: StripePaymentResponse = await serverResponse.json();
+      if (responseJson.location) {
+        window.location.href = responseJson.location;
+      }
+    } catch (e) {
+      console.error(e)
     }
   }, [shared]);
 

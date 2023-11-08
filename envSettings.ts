@@ -56,19 +56,19 @@ const ENV: { [env in "development" | "production"]: EnvSettings } = {
     stripe: {
       products: {
         PRODUCT_1: {
-          stripeProductId: "prod_OiNxfYtViyXOQx",
+          stripeProductId: "prod_Oy8l78HVrfI1ls",
           subscription: false,
         },
         PRODUCT_2: {
-          stripeProductId: "prod_OiNxGk7ZRmQi9S",
+          stripeProductId: "price_1OACWwIjit1s7RiHuCvfwPI5",
           subscription: false,
         },
         PRODUCT_3: {
-          stripeProductId: "prod_OiNy3s1qv4k4fE",
+          stripeProductId: "prod_Oy8pbXF2yRcG0C",
           subscription: false,
         },
         PRODUCT_4: {
-          stripeProductId: "prod_OiNyhvsWczhPPf",
+          stripeProductId: "prod_Oy8pMxrb2s8v1l",
           subscription: false,
         },
       },
