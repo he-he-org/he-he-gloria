@@ -15,3 +15,13 @@
     height: 40px;
   }
 }
+
+@media (max-width: 384px) {
+  .button {
+    height: 35px;
+
+    > svg {
+      height: 30px;
+    }
+  }
+}

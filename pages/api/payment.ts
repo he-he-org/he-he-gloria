@@ -18,8 +18,8 @@ import { EnvSettings } from "../../shared/env";
 // import cors from "cors";
 import envSettings from "../../envSettings";
 
-const SUCCESS_URL = "/";
-const CANCEL_URL = "/";
+const SUCCESS_URL = "/success";
+const CANCEL_URL = "/cancel";
 const LANGS = ["en"];
 const DEFAULT_LANG = "en";
 

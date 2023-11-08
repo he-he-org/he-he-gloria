@@ -6,6 +6,7 @@ import {
 } from "../../../../../shared/payment";
 import { SharedPaymentInformation } from "../types";
 import Message from "./Message";
+import { PayPalScriptOptions } from "@paypal/paypal-js/types/script-options";
 
 // Renders errors or successfull transactions on the screen.
 
@@ -18,10 +19,11 @@ export default function PayPal(props: Props) {
   if (PAYPAL_CLIENT_ID == null) {
     throw new Error(`PAYPAL_CLIENT_ID is not defined`);
   }
-  const initialOptions = {
+  const initialOptions: PayPalScriptOptions = {
     clientId: PAYPAL_CLIENT_ID,
-    "enable-funding": "paypal",
-    "data-sdk-integration-source": "integrationbuilder_sc",
+    enableFunding: "paypal",
+    // "data-sdk-integration-source": "integrationbuilder_sc",
+    locale: 'en_US',
     vault: shared.subscription,
   };
 

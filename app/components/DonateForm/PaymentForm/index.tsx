@@ -56,20 +56,6 @@ export default function PaymentForm() {
           sharedPaymentInformation={sharedPaymentInformation}
           onChangeSharedPaymentInformation={setSharedPaymentInformation}
         />
-        {/*<div>*/}
-        {/*  <button type="button" onClick={() => setMethod("stripe")}>*/}
-        {/*    Stripe*/}
-        {/*  </button>*/}
-        {/*  <button type="button" onClick={() => setMethod("venmno")}>*/}
-        {/*    Venmno*/}
-        {/*  </button>*/}
-        {/*  <button type="button" onClick={() => setMethod("payPal")}>*/}
-        {/*    PayPal*/}
-        {/*  </button>*/}
-        {/*  <button type="button" onClick={() => setMethod("crypto")}>*/}
-        {/*    Crypto*/}
-        {/*  </button>*/}
-        {/*</div>*/}
         <div className={s.buttons}>
           <div className={s.description}>
             {sharedPaymentInformation.product?.description}
@@ -78,9 +64,6 @@ export default function PaymentForm() {
           {!sharedPaymentInformation.subscription && (
             <PayPal shared={sharedPaymentInformation} />
           )}
-          {/*{method === "venmno" && <Venmno />}*/}
-          {/*{method === "payPal" && <PayPal />}*/}
-          {/*{method === "crypto" && <Crypto />}*/}
         </div>
       </div>
     </div>
