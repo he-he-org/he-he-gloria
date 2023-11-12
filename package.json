@@ -23,6 +23,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.67.0",
+    "sharp": "^0.32.6",
     "stripe": "^12.12.0"
   },
   "devDependencies": {
