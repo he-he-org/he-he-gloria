@@ -543,27 +543,27 @@ export default function Page() {
         </div>
         <PhotoGallery
           images={[
-            { src: Photo01.src, title: "Señora waiting in line" },
+            { image: Photo01, title: "Señora waiting in line" },
             {
-              src: Photo02.src,
+              image: Photo02,
               title:
                 "Our doctors seem to have found something surprising. Is it twins?",
             },
             {
-              src: Photo06.src,
+              image: Photo06,
               title: "Donna Gloria in real life",
             },
             {
-              src: Photo03.src,
+              image: Photo03,
               title:
                 "Peace of mind for the mother - and a sweet treat for the kid",
             },
             {
-              src: Photo04.src,
+              image: Photo04,
               title: "Hands down, the coolest way to pass time while queuing",
             },
             {
-              src: Photo05.src,
+              image: Photo05,
               title:
                 "When in doubt, we get a consult from other specialists in the clinic",
             },

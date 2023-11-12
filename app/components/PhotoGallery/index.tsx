@@ -2,9 +2,10 @@
 import s from "./index.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { useIsMobile } from "../../helpers/browser";
+import Image, { StaticImageData } from "next/image";
 
 interface ImageInfo {
-  src: string;
+  image: StaticImageData;
   title: string;
 }
 
@@ -29,7 +30,7 @@ export default function PhotoGallery(props: Props) {
       let j = -1;
       for (let i = 0; i < children.length; i++) {
         const imageEl = children[i];
-        if (imageEl.classList.contains(REAL_IMAGE_MARKER_CLASS)) {
+        if (imageEl.classList.contains(s.imageContainer)) {
           j++;
         }
         if (j === active) {
@@ -62,7 +63,7 @@ export default function PhotoGallery(props: Props) {
         >
           {images.map((image, i) => (
             <Img
-              key={image.src}
+              key={image.image.src}
               image={image}
               isActive={i === active}
               onClick={() => {
@@ -89,23 +90,21 @@ export default function PhotoGallery(props: Props) {
 
 function Img(props: {
   image: ImageInfo;
-  isFake?: boolean;
   isActive?: boolean;
   onClick: () => void;
 }) {
-  const { src, title } = props.image;
+  const { image, title } = props.image;
   return (
     <div
       className={[
         s.imageContainer,
-        props.isFake ? s.fake : REAL_IMAGE_MARKER_CLASS,
         props.isActive && s.isActive,
       ].join(" ")}
     >
-      <img
-        alt={`One of the photos from our clinics`}
+      <Image
         className={s.image}
-        src={src}
+        src={image}
+        alt={`One of the photos from our clinics`}
         onClick={props.onClick}
       />
       <div className={s.imageTitle}>{title}</div>

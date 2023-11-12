@@ -50,6 +50,7 @@ $height: 600px;
 
 .image {
   height: $height;
+  width: auto;
   transition-duration: utils.$animation-duration;
   transition-property: transform;
 }
