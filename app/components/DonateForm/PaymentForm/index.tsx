@@ -1,14 +1,13 @@
 "use client";
-import { useState } from "react";
-import Crypto from "./Crypto";
-import Venmno from "./Venmno";
-import Stripe from "./Stripe";
+import { useCallback, useState } from "react";
+import envSettings from "../../../../envSettings";
+import { EnvSettings } from "../../../../shared/env";
+import s from "./index.module.scss";
 import PayPal from "./PayPal";
 import SharedForm from "./SharedForm";
+import Stripe from "./Stripe";
 import { SharedPaymentInformation } from "./types";
-import s from "./index.module.scss";
-import { EnvSettings } from "../../../../shared/env";
-import envSettings from "../../../../envSettings";
+import InitiateCheckoutParameters = facebook.Pixel.InitiateCheckoutParameters;
 
 const ENV =
   process.env.NODE_ENV === "development" ? "development" : "production";
@@ -29,6 +28,17 @@ export default function PaymentForm() {
       subscription: !prevState.subscription,
     }));
   };
+  const handleTrackPayment = useCallback(() => {
+    const parameters: InitiateCheckoutParameters = {
+      value: sharedPaymentInformation.amount ?? 0,
+      currency: "USD",
+    };
+    fbq("track", "InitiateCheckout", {
+      ...parameters,
+      type: sharedPaymentInformation.subscription ? "subscription" : "one_time",
+    });
+  }, [sharedPaymentInformation]);
+
   return (
     <div className={s.root}>
       <div className={s.tabs}>
@@ -60,9 +70,15 @@ export default function PaymentForm() {
           <div className={s.description}>
             {sharedPaymentInformation.product?.description}
           </div>
-          <Stripe shared={sharedPaymentInformation} />
+          <Stripe
+            shared={sharedPaymentInformation}
+            onTrackPayment={handleTrackPayment}
+          />
           {!sharedPaymentInformation.subscription && (
-            <PayPal shared={sharedPaymentInformation} />
+            <PayPal
+              shared={sharedPaymentInformation}
+              onTrackPayment={handleTrackPayment}
+            />
           )}
         </div>
       </div>

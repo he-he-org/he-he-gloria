@@ -10,12 +10,12 @@ import { PayPalScriptOptions } from "@paypal/paypal-js/types/script-options";
 
 // Renders errors or successfull transactions on the screen.
 
-type Props = { shared: SharedPaymentInformation };
+type Props = { shared: SharedPaymentInformation; onTrackPayment: () => void };
 
 const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
 
 export default function PayPal(props: Props) {
-  const { shared } = props;
+  const { shared, onTrackPayment } = props;
   if (PAYPAL_CLIENT_ID == null) {
     throw new Error(`PAYPAL_CLIENT_ID is not defined`);
   }
@@ -23,7 +23,7 @@ export default function PayPal(props: Props) {
     clientId: PAYPAL_CLIENT_ID,
     enableFunding: "paypal",
     // "data-sdk-integration-source": "integrationbuilder_sc",
-    locale: 'en_US',
+    locale: "en_US",
     vault: shared.subscription,
   };
 
@@ -129,6 +129,7 @@ export default function PayPal(props: Props) {
               : undefined
           }
           onApprove={async (data, actions) => {
+            onTrackPayment();
             try {
               const request: PaypalPaymentRequest = {
                 paymentMethod: "paypal",
@@ -183,9 +184,7 @@ export default function PayPal(props: Props) {
                 // Or go to another URL:  actions.redirect('thank_you.html');
                 const transaction =
                   orderData.purchase_units[0].payments.captures[0];
-                setMessage(
-                  `Donation accepted! Thank you!`
-                );
+                setMessage(`Donation accepted! Thank you!`);
                 setIsError(false);
                 console.log(
                   "Capture result",

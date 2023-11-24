@@ -2,7 +2,10 @@ import envSettings from "../../../../../envSettings";
 import { EnvSettings } from "../../../../../shared/env";
 import { SharedPaymentInformation } from "../types";
 import { useCallback } from "react";
-import {PaymentRequest, StripePaymentResponse} from "../../../../../shared/payment";
+import {
+  PaymentRequest,
+  StripePaymentResponse,
+} from "../../../../../shared/payment";
 import s from "./index.module.scss";
 import LogoSvg from "./logo.svg";
 
@@ -11,12 +14,13 @@ const ENV =
 
 const settings: EnvSettings = envSettings[ENV];
 
-type Props = { shared: SharedPaymentInformation };
+type Props = { shared: SharedPaymentInformation; onTrackPayment: () => void };
 export default function Stripe(props: Props) {
-  const { shared } = props;
+  const { shared, onTrackPayment } = props;
 
   const handleSubmit = useCallback(async () => {
     try {
+      onTrackPayment();
       const request: PaymentRequest = {
         paymentMethod: "stripe",
         params: {
@@ -37,9 +41,9 @@ export default function Stripe(props: Props) {
         window.location.href = responseJson.location;
       }
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
-  }, [shared]);
+  }, [onTrackPayment, shared]);
 
   return (
     <button
