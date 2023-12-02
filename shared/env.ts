@@ -1,6 +1,6 @@
 export type Product = {
   productId: string;
-  amount: number;
+  amount: number | null;
   description: string;
 };
 

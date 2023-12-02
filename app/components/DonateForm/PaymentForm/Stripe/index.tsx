@@ -47,7 +47,7 @@ export default function Stripe(props: Props) {
 
   return (
     <button
-      disabled={shared.product == null}
+      disabled={shared.product == null || shared.amount == null}
       onClick={handleSubmit}
       className={s.button}
     >

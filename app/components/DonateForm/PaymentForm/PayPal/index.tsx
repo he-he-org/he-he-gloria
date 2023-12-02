@@ -45,6 +45,7 @@ export default function PayPal(props: Props) {
             // color: fundingSource == paypal.FUNDING.PAYLATER ? "gold" : "",
             layout: "vertical", //default value. Can be changed to horizontal
           }}
+          disabled={shared.amount == null}
           createSubscription={
             shared.subscription
               ? async () => {

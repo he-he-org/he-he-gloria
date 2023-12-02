@@ -1,6 +1,6 @@
-import { EnvSettings } from "./shared/env";
+import { EnvSettings, Product } from "./shared/env";
 
-const products = [
+const products: Product[] = [
   {
     productId: "PRODUCT_1",
     amount: 50,
@@ -25,6 +25,12 @@ const products = [
     description:
       "Offer a year of dedicated care to a patient battling epilepsy, helping them live a better life.",
   },
+  {
+    productId: "PRODUCT_5",
+    amount: null,
+    description:
+      "You can also choose to donate a custom amount to support our work.",
+  },
 ];
 
 const ENV: { [env in "development" | "production"]: EnvSettings } = {
@@ -48,6 +54,10 @@ const ENV: { [env in "development" | "production"]: EnvSettings } = {
           stripeProductId: "prod_Oy8pMxrb2s8v1l",
           subscription: false,
         },
+        PRODUCT_5: {
+          stripeProductId: "prod_P7Gu3eWPngEiig",
+          subscription: false,
+        },
       },
     },
   },
@@ -69,6 +79,10 @@ const ENV: { [env in "development" | "production"]: EnvSettings } = {
         },
         PRODUCT_4: {
           stripeProductId: "prod_OiNyhvsWczhPPf",
+          subscription: false,
+        },
+        PRODUCT_5: {
+          stripeProductId: "prod_P7H4uyhgaXXj08",
           subscription: false,
         },
       },

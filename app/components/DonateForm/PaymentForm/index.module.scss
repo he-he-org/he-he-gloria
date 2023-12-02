@@ -15,9 +15,10 @@ $border: 2px solid utils.$colors-black;
   border-radius: $border-radius;
   border-top-left-radius: 0;
   width: 600px;
-  display: flex;
   gap: 40px;
   align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .tabs {
@@ -73,13 +74,13 @@ $border: 2px solid utils.$colors-black;
   gap: 14px;
 }
 
-
 @media (max-width: utils.$mobile-width) {
   .body {
     flex-direction: column;
     align-items: stretch;
     width: unset;
     padding: 24px;
+    grid-template-columns: 1fr;
   }
   .tab {
     min-width: unset;

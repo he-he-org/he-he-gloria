@@ -2,7 +2,7 @@
 
 .root {
   display: grid;
-  grid-template-columns: min-content min-content;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
@@ -15,6 +15,14 @@
   font-size: 24px;
   font-weight: 300;
   color: utils.$colors-black;
+  outline: none;
+
+  &.customAmount {
+    grid-column: span 2;
+    padding: 0 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
   &.isActive {
     background: utils.$colors-red;

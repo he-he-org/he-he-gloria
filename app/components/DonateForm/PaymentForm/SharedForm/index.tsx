@@ -12,10 +12,10 @@ export default function SharedForm(props: Props) {
   return (
     <AmountSelector
       selectedId={sharedPaymentInformation.product?.productId ?? null}
-      onChange={(product) => {
+      onChange={(product, amount) => {
         onChangeSharedPaymentInformation({
           ...sharedPaymentInformation,
-          amount: product.amount,
+          amount,
           product,
         });
       }}
