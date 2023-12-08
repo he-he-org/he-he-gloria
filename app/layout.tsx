@@ -1,4 +1,3 @@
-import "./reset.scss";
 import "./global.scss";
 import s from "./layout.module.scss";
 import Analytics from "./components/Analytics";
